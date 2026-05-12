@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "module": "agenda",
+    "feature_slice": "MVP §3.5 step 3",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Ordre du jour section"
+  },
+  "permission_titles": [
+    {
+      "key": "agenda.list",
+      "title_fr": "Lister les points",
+      "title_en": "List agenda items",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/agenda_item"}]
+    },
+    {
+      "key": "agenda.read_active",
+      "title_fr": "Voir le point actif",
+      "title_en": "Read active item",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/agenda_active"}]
+    },
+    {
+      "key": "agenda.detail",
+      "title_fr": "Voir le détail d'un point",
+      "title_en": "View agenda item detail",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/agenda_item"}]
+    },
+    {
+      "key": "agenda.create",
+      "title_fr": "Ajouter un point",
+      "title_en": "Create agenda item",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/agenda_item"}]
+    },
+    {
+      "key": "agenda.patch",
+      "title_fr": "Modifier un point",
+      "title_en": "Update agenda item",
+      "bucket": "standalone",
+      "endpoints": [{"method": "PATCH", "path": "/api/v1/patch/agenda_item"}]
+    },
+    {
+      "key": "agenda.delete",
+      "title_fr": "Supprimer un point",
+      "title_en": "Delete agenda item",
+      "bucket": "standalone",
+      "endpoints": [{"method": "DELETE", "path": "/api/v1/delete/agenda_item"}]
+    },
+    {
+      "key": "agenda.reorder",
+      "title_fr": "Réordonner",
+      "title_en": "Reorder agenda items",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/reorder/agenda_item"}]
+    },
+    {
+      "key": "agenda.activate",
+      "title_fr": "Activer un point (rendre courant)",
+      "title_en": "Activate agenda item",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/activate/agenda_item"}]
+    },
+    {
+      "key": "agenda.publish",
+      "title_fr": "Publier l'ordre du jour",
+      "title_en": "Publish agenda",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/publish/agenda"}]
+    }
+  ]
+}

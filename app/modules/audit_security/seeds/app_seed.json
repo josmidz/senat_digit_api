@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "module": "audit_security",
+    "purpose": "Admin web 'Audit' surface — not a mobile app shell. Mobile sénateurs do not see audit screens; greffier+admin_it+archiviste use the Angular admin.",
+    "sitemap_source": "_planning/01_sitemap_v2.md — Module 10 (Audit & Logs)"
+  },
+  "apps": [
+    {
+      "flag": "senat_digit_admin_audit",
+      "name": "Audit",
+      "path": "/audit",
+      "path_guard": "senat_digit_admin_audit_page",
+      "order_by": 8,
+      "is_activated": true,
+      "restricted_api_consumer_list": [
+        {"flag": "senat_digit_admin_web", "is_link_activated": true}
+      ],
+      "sub_menus": [
+        {"flag": "senat_digit_admin_audit_security", "name": "Logs sécurité", "path": "/audit/security", "is_activated": true},
+        {"flag": "senat_digit_admin_audit_vote", "name": "Logs vote", "path": "/audit/vote", "is_activated": true},
+        {"flag": "senat_digit_admin_audit_document", "name": "Logs accès doc", "path": "/audit/document", "is_activated": true},
+        {"flag": "senat_digit_admin_audit_session", "name": "Logs séance", "path": "/audit/session", "is_activated": true},
+        {"flag": "senat_digit_admin_audit_chain_verify", "name": "Vérification chaîne", "path": "/audit/verify", "is_activated": true},
+        {"flag": "senat_digit_admin_audit_chain_export", "name": "Export chaîne signée", "path": "/audit/export", "is_activated": true}
+      ]
+    }
+  ]
+}

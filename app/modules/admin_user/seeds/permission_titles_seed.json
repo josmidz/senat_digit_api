@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "module": "admin_user",
+    "feature_slice": "SYSTEM_PROFIL tenant management surface",
+    "scope": "Cross-tenant operations restricted to system_profil_super_admin via RBAC role grants — NOT inline profile-flag checks.",
+    "matrix_source": "Notes from user: system_profil must be able to (a) create main_profile organization, (b) view organization users, (c) generate password reset link, (d) lock/unlock users — and every access must follow the same RBAC rule."
+  },
+  "permission_titles": [
+    {
+      "key": "admin_user.create_organization",
+      "title_fr": "Créer une organisation locataire",
+      "title_en": "Create tenant organization",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/organizations/add/org"}
+      ]
+    },
+    {
+      "key": "admin_user.list_users_for_organization",
+      "title_fr": "Lister les utilisateurs d'une organisation",
+      "title_en": "List users in an organization",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/sys_user_for_organization"}
+      ]
+    },
+    {
+      "key": "admin_user.generate_password_reset_link",
+      "title_fr": "Générer un lien de réinitialisation du mot de passe",
+      "title_en": "Generate password reset link",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/organizations/generate-reset-password-link"}
+      ]
+    },
+    {
+      "key": "admin_user.patch_account_status",
+      "title_fr": "Verrouiller / déverrouiller un compte utilisateur",
+      "title_en": "Lock / unlock user account",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/patch/sys_user_account_status"}
+      ]
+    },
+    {
+      "key": "admin_user.list_pending_devices",
+      "title_fr": "Lister les appareils en attente d'activation",
+      "title_en": "List devices pending activation",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/sys_user_device_pending"}
+      ]
+    },
+    {
+      "key": "admin_user.validate_device",
+      "title_fr": "Valider un appareil utilisateur",
+      "title_en": "Validate a user device",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/patch/sys_user_device_activate"}
+      ]
+    },
+    {
+      "key": "admin_user.revoke_device",
+      "title_fr": "Révoquer un appareil utilisateur",
+      "title_en": "Revoke a user device",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/patch/sys_user_device_revoke"}
+      ]
+    },
+    {
+      "key": "admin_user.create_user",
+      "title_fr": "Créer un utilisateur",
+      "title_en": "Create a user",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/create/sys_user_in_organization"}
+      ]
+    },
+    {
+      "key": "admin_user.list_all_devices",
+      "title_fr": "Lister tous les appareils (toutes statuts)",
+      "title_en": "List all devices (any status)",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/sys_user_device_all"}
+      ]
+    },
+    {
+      "key": "admin_user.list_user_login_history",
+      "title_fr": "Lister l'historique de connexion des utilisateurs",
+      "title_en": "List user login history",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/organizations/fetch/user-login-histories"}
+      ]
+    }
+  ]
+}

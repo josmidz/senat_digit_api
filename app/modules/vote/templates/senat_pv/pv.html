@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+{# ----------------------------------------------------------------------- #}
+{# Procès-verbal de scrutin — WeasyPrint template (A4, paginated)          #}
+{# Rendered by `app.modules.vote.services.pv_export_service.PvExportService` #}
+{# Variables injected by the service (see PvExportService._render_context):  #}
+{#   org_name, generated_at_human, generated_at_iso                          #}
+{#   session: {title, identifier, opened_at_human, closed_at_human, total_seats} #}
+{#   resolution_title (str | None)                                           #}
+{#   cfg: {title, identifier, ballot_type, is_secret, majority_type,         #}
+{#         majority_custom_threshold, duration_seconds, allow_proxies,       #}
+{#         opened_at_human, closed_at_human}                                 #}
+{#   result: {count_pour, count_contre, count_abstention, count_npv,         #}
+{#            ballot_headcount, total_weighted, majority_required_count,     #}
+{#            majority_met, decision, computed_at_human}                     #}
+{#   verdict_label ("ADOPTÉ" | "REJETÉ" | "NON DÉCIDÉ")                      #}
+{#   verdict_color (hex)                                                     #}
+{#   percentages: {pour, contre, abstention, npv}  -- percentages of total   #}
+{# ----------------------------------------------------------------------- #}
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Procès-verbal — {{ cfg.title }}</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+    @bottom-center {
+      content: "Procès-verbal de scrutin — page " counter(page) " / " counter(pages);
+      font-family: "Helvetica", "Arial", sans-serif;
+      font-size: 9pt;
+      color: #4b5563;
+    }
+  }
+
+  /* ---- Senat-Digit Option B palette (mirrors Flutter app theme) ---- */
+  :root {
+    --senat-navy: #1B3A5E;
+    --senat-sky:  #3DB6E0;
+    --drc-red:    #CE1126;
+    --drc-yellow: #F7D618;
+    --senat-success: #15803D;
+    --text-primary: #1F2937;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+    --card-border: #E5E7EB;
+    --surface-alt: #EFF6FB;
+  }
+
+  body {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: var(--text-primary);
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  h1, h2, h3 { color: var(--senat-navy); margin: 0; }
+  h1 { font-size: 16pt; font-weight: 700; letter-spacing: 0.2pt; }
+  h2 { font-size: 13pt; font-weight: 700; margin-top: 14pt; margin-bottom: 6pt; }
+  h3 { font-size: 11pt; font-weight: 700; }
+
+  .header {
+    border-bottom: 2pt solid var(--senat-navy);
+    padding-bottom: 10pt;
+    margin-bottom: 16pt;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header .titles { line-height: 1.3; }
+  .header .country {
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 1.2pt;
+    color: var(--senat-navy);
+    font-weight: 700;
+  }
+  .header .institution {
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--senat-navy);
+    margin-top: 2pt;
+  }
+  .header .doctype {
+    font-size: 9pt;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1pt;
+    margin-top: 2pt;
+  }
+  .header .stamp {
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  /* ---- Verdict banner ---- */
+  .verdict {
+    margin: 14pt 0 18pt 0;
+    padding: 14pt 16pt;
+    border-radius: 8pt;
+    background: var(--verdict-bg, #F1F5F9);
+    border-left: 6pt solid var(--verdict-color, var(--text-muted));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .verdict .label {
+    font-size: 22pt;
+    font-weight: 800;
+    letter-spacing: 4pt;
+    color: var(--verdict-color, var(--text-primary));
+  }
+  .verdict .meta {
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 9.5pt;
+    line-height: 1.4;
+  }
+
+  /* ---- Metadata grid ---- */
+  table.meta {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4pt;
+  }
+  table.meta td {
+    padding: 4pt 8pt;
+    border-bottom: 0.5pt solid var(--card-border);
+    vertical-align: top;
+    font-size: 10.5pt;
+  }
+  table.meta td.k {
+    width: 30%;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    font-size: 8.5pt;
+    font-weight: 700;
+  }
+
+  /* ---- Tally table ---- */
+  table.tally {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6pt;
+  }
+  table.tally thead th {
+    text-align: left;
+    background: var(--senat-navy);
+    color: #ffffff;
+    padding: 6pt 8pt;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8pt;
+  }
+  table.tally tbody td {
+    padding: 6pt 8pt;
+    border-bottom: 0.5pt solid var(--card-border);
+    font-size: 10.5pt;
+  }
+  table.tally tbody td.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-weight: 600;
+  }
+  table.tally tbody tr.total {
+    background: var(--surface-alt);
+  }
+  table.tally tbody tr.total td { font-weight: 700; color: var(--senat-navy); }
+  table.tally .swatch {
+    display: inline-block;
+    width: 10pt;
+    height: 10pt;
+    border-radius: 2pt;
+    margin-right: 6pt;
+    vertical-align: middle;
+  }
+
+  /* ---- Notes / signature blocks ---- */
+  .notes {
+    margin-top: 14pt;
+    padding: 10pt 12pt;
+    border: 0.5pt solid var(--card-border);
+    border-radius: 6pt;
+    background: #FAFCFE;
+    color: var(--text-secondary);
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+  .signatures {
+    margin-top: 24pt;
+    display: flex;
+    justify-content: space-between;
+  }
+  .signatures .block {
+    width: 46%;
+    border-top: 0.5pt solid var(--text-secondary);
+    padding-top: 6pt;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+  .signatures .block strong {
+    color: var(--senat-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    font-size: 9pt;
+  }
+</style>
+</head>
+
+<body
+  style="--verdict-color: {{ verdict_color }}; --verdict-bg: {{ verdict_bg }};"
+>
+
+  <!-- ===== Header ===== -->
+  <div class="header">
+    <div class="titles">
+      <div class="country">République Démocratique du Congo</div>
+      <div class="institution">Sénat</div>
+      <div class="doctype">Procès-verbal de scrutin</div>
+    </div>
+    <div class="stamp">
+      Réf. PV n° {{ cfg.identifier }}<br/>
+      Émis le {{ generated_at_human }}<br/>
+      {{ org_name }}
+    </div>
+  </div>
+
+  <!-- ===== Verdict banner ===== -->
+  <div class="verdict">
+    <div class="label">{{ verdict_label }}</div>
+    <div class="meta">
+      Majorité requise : {{ result.majority_required_count }}<br/>
+      Majorité atteinte : {{ "OUI" if result.majority_met else "NON" }}<br/>
+      Total pondéré exprimé : {{ result.total_weighted }}
+    </div>
+  </div>
+
+  <!-- ===== Resolution + scrutin metadata ===== -->
+  <h2>Résolution mise au vote</h2>
+  <table class="meta">
+    <tr>
+      <td class="k">Intitulé du scrutin</td>
+      <td>{{ cfg.title }}</td>
+    </tr>
+    {% if resolution_title %}
+    <tr>
+      <td class="k">Texte / résolution</td>
+      <td>{{ resolution_title }}</td>
+    </tr>
+    {% endif %}
+    <tr>
+      <td class="k">Séance</td>
+      <td>{{ session.title }} (n° {{ session.identifier }})</td>
+    </tr>
+    <tr>
+      <td class="k">Type de scrutin</td>
+      <td>
+        {{ cfg.ballot_type_human }}
+        {% if cfg.is_secret %} · <strong>Vote secret</strong>{% endif %}
+        {% if cfg.allow_proxies %} · Procurations autorisées{% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td class="k">Majorité requise</td>
+      <td>
+        {{ cfg.majority_type_human }}
+        {% if cfg.majority_custom_threshold is not none %}
+          ({{ "%.0f"|format(cfg.majority_custom_threshold * 100) }} %)
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td class="k">Ouverture / clôture</td>
+      <td>
+        {{ cfg.opened_at_human or "—" }} → {{ cfg.closed_at_human or "—" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="k">Sièges (référence)</td>
+      <td>{{ session.total_seats }}</td>
+    </tr>
+  </table>
+
+  <!-- ===== Tally table ===== -->
+  <h2>Décompte des suffrages</h2>
+  <table class="tally">
+    <thead>
+      <tr>
+        <th>Choix</th>
+        <th style="text-align:right;">Pondéré</th>
+        <th style="text-align:right;">% du total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="swatch" style="background: var(--senat-sky);"></span>POUR</td>
+        <td class="num">{{ result.count_pour }}</td>
+        <td class="num">{{ "%.1f"|format(percentages.pour) }} %</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: var(--drc-red);"></span>CONTRE</td>
+        <td class="num">{{ result.count_contre }}</td>
+        <td class="num">{{ "%.1f"|format(percentages.contre) }} %</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: var(--text-muted);"></span>ABSTENTION</td>
+        <td class="num">{{ result.count_abstention }}</td>
+        <td class="num">{{ "%.1f"|format(percentages.abstention) }} %</td>
+      </tr>
+      <tr>
+        <td><span class="swatch" style="background: var(--drc-yellow);"></span>NE PREND PAS PART AU VOTE (NPV)</td>
+        <td class="num">{{ result.count_npv }}</td>
+        <td class="num">{{ "%.1f"|format(percentages.npv) }} %</td>
+      </tr>
+      <tr class="total">
+        <td>TOTAL EXPRIMÉ (pondéré)</td>
+        <td class="num">{{ result.total_weighted }}</td>
+        <td class="num">100,0 %</td>
+      </tr>
+      <tr>
+        <td>Bulletins enregistrés (effectif)</td>
+        <td class="num">{{ result.ballot_headcount }}</td>
+        <td class="num">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="notes">
+    <strong>Notes.</strong> Les voix « NE PREND PAS PART AU VOTE » (NPV)
+    n'entrent pas dans le calcul de la majorité {{ cfg.majority_type_human|lower }}.
+    {% if cfg.is_secret %}
+    Le scrutin est secret&nbsp;: la correspondance électeur → choix est
+    chiffrée par clé symétrique sous scellée par la clé maîtresse de
+    l'organisation. Seuls les décomptes agrégés sont déchiffrables.
+    {% endif %}
+    {% if cfg.allow_proxies %}
+    Les procurations actives au moment de la clôture ont été appliquées via
+    pondération des bulletins de leur titulaire.
+    {% endif %}
+  </div>
+
+  <!-- ===== Signatures ===== -->
+  <div class="signatures">
+    <div class="block">
+      <strong>Le Greffier</strong><br/>
+      Signature&nbsp;:<br/><br/>
+      Nom&nbsp;: ………………………………………<br/>
+      Date&nbsp;: ………………………………………
+    </div>
+    <div class="block">
+      <strong>Le Président de séance</strong><br/>
+      Signature&nbsp;:<br/><br/>
+      Nom&nbsp;: ………………………………………<br/>
+      Date&nbsp;: ………………………………………
+    </div>
+  </div>
+
+</body>
+</html>

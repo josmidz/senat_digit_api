@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "module": "document",
+    "purpose": "Mobile bottom-nav 'Documents' tab + sub-screens (liste, détail, lecteur PDF, amendements, versions)",
+    "sitemap_source": "_planning/01_sitemap_v2.md — Module 4 (Documents) + bottom-nav item #3"
+  },
+  "apps": [
+    {
+      "flag": "senat_digit_mobile_documents",
+      "name": "Documents",
+      "path": "/documents",
+      "path_guard": "senat_digit_mobile_documents_page",
+      "order_by": 3,
+      "is_activated": true,
+      "restricted_api_consumer_list": [
+        {"flag": "senat_digit_mobile", "is_link_activated": true}
+      ],
+      "sub_menus": [
+        {
+          "flag": "senat_digit_mobile_documents_list",
+          "name": "Liste textes & résolutions",
+          "path": "/documents",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_documents_detail",
+          "name": "Détails",
+          "path": "/documents/:id",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_documents_pdf_reader",
+          "name": "Lecteur PDF",
+          "path": "/documents/:id/read",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_documents_amendments",
+          "name": "Amendements",
+          "path": "/documents/:id/amendments",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_documents_versions",
+          "name": "Versions",
+          "path": "/documents/:id/versions",
+          "is_activated": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{EMAIL_TITLE}}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F0F8FF;font-family:'Roboto',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#F0F8FF;">
+    <tr>
+      <td align="center" style="padding:30px 15px;">
+        <table width="700" cellpadding="0" cellspacing="0" role="presentation"
+               style="max-width:700px;width:100%;background-color:#ffffff;border-radius:12px;
+                      box-shadow:0 4px 24px rgba(0,0,0,0.06);overflow:hidden;">
+          <!-- HEADER -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#009EA1 0%,#007B7E 100%);padding:35px 40px;text-align:center;">
+              <img src="{{LOGO_URL}}" alt="{{ORGANIZATION_NAME}}" width="48" height="48"
+                   style="display:block;margin:0 auto 14px;" />
+              <h1 style="margin:0;font-size:24px;font-weight:700;color:#ffffff;line-height:1.3;">
+                {{EMAIL_TITLE}}
+              </h1>
+            </td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="padding:40px;">
+              <p style="margin:0 0 20px;font-size:16px;color:#334155;line-height:1.6;">
+                Hello {{RECIPIENT_NAME}},
+              </p>
+              <div style="font-size:15px;color:#475569;line-height:1.7;">
+                {{EMAIL_BODY}}
+              </div>
+
+              <!-- IF:ACTION_BUTTON_URL -->
+              <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:30px 0;">
+                <tr>
+                  <td align="center">
+                    <a href="{{ACTION_BUTTON_URL}}"
+                       style="display:inline-block;padding:14px 36px;background-color:#009EA1;color:#ffffff;
+                              text-decoration:none;border-radius:8px;font-weight:600;font-size:16px;"
+                       target="_blank">{{ACTION_BUTTON_TEXT}}</a>
+                  </td>
+                </tr>
+              </table>
+              <!-- ENDIF:ACTION_BUTTON_URL -->
+
+              <!-- IF:FOOTER_NOTE -->
+              <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:20px;">
+                <tr>
+                  <td style="padding:16px 20px;background-color:#F0F8FF;border-radius:8px;
+                             font-size:13px;color:#64748B;line-height:1.6;">
+                    {{FOOTER_NOTE}}
+                  </td>
+                </tr>
+              </table>
+              <!-- ENDIF:FOOTER_NOTE -->
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:#1E293B;padding:30px 40px;text-align:center;">
+              <p style="margin:0 0 6px;font-size:13px;color:#94A3B8;line-height:1.5;">
+                Sent by {{SENDER_NAME}}
+              </p>
+              <p style="margin:0;font-size:12px;color:#64748B;line-height:1.5;">
+                Questions? Contact us at
+                <a href="mailto:{{SUPPORT_EMAIL}}" style="color:#009EA1;text-decoration:none;">{{SUPPORT_EMAIL}}</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

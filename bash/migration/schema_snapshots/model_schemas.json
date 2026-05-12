@@ -1,0 +1,3772 @@
+{
+  "ref_raw_content_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "raw_flag": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "main_content_css": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    }
+  },
+  "rbac_permission_target": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_action_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_component_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    }
+  },
+  "cfg_icon_api_consumer": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_icon_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "rbac_component": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_component_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "is_standalone": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    },
+    "hard_code_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": "main"
+    },
+    "flag": {
+      "type": "ERbacComponentFlag",
+      "nullable": true,
+      "default": "main"
+    }
+  },
+  "ref_blood_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "rh_factor": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "universal_donor": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "universal_recipient": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_permission_role": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_role_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "cfg_grade": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "cfg_grade_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_function": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    }
+  },
+  "ref_color": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "hex_code": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    }
+  },
+  "rbac_sudo_action": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_sudo_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "can_by_pass_sudo_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "can_by_pass_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    }
+  },
+  "ref_access": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "EAccessFlag",
+      "nullable": false,
+      "default": "EAccessFlag.READ"
+    }
+  },
+  "cfg_user_profil_role": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_default": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": false
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_role_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_application_group": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "int",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    }
+  },
+  "cfg_children_display_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "ref_children_display_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_restricted_profil": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "is_hidden": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_locked": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_data_to_collect_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "system_scope": {
+      "type": "bool",
+      "nullable": false,
+      "default": true
+    },
+    "value": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_document_template_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    }
+  },
+  "rbac_permission": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_title_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_sudo_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_system_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_accessible_to_all_profil": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "menu_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "app_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "action_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "component_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_religion": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_sudo_action_organization": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "can_by_pass_sudo_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "can_by_pass_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_sudo_action_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    }
+  },
+  "sys_family_unit": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "family_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "head_of_family_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "members_ids": {
+      "type": "array",
+      "nullable": false,
+      "default": null
+    },
+    "address": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "created_date": {
+      "type": "date",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_bank": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "abreviation": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "has_rib_nomenclature_constraint": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "rib_account_number_format_str": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "has_prefixes_constraint": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "bank_account_number_prefixes": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "prefix_caracters_number": {
+      "type": "int",
+      "nullable": true,
+      "default": null
+    },
+    "ref_bank_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_title": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "rbac_title_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_organization": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "logo_file_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "latitude": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "longitude": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "altitude": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "address": {
+      "type": "string",
+      "nullable": true,
+      "default": ""
+    },
+    "emails": {
+      "type": "array",
+      "nullable": true,
+      "default": null
+    },
+    "phone_numbers": {
+      "type": "array",
+      "nullable": true,
+      "default": null
+    },
+    "others": {
+      "type": "array",
+      "nullable": true,
+      "default": null
+    },
+    "contact_person": {
+      "type": "unknown",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_currency": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "code": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "symbol": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "number": {
+      "type": "int",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_country_currency": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_currency_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "sys_menu": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "order_by": {
+      "type": "int",
+      "nullable": true,
+      "default": 0
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "sys_menu_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_application_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "system_scoped": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_standalone": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_skipable_menu_on_view": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_parameterized_menu": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_accessible_to_all_profil": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "menu_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "menu_title": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucun titre fourni."
+    }
+  },
+  "cfg_organism_chart": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "cfg_organism_chart_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "rbac_privilege": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "status": {
+      "type": "unknown",
+      "nullable": false,
+      "default": "ADDED"
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>aucune description fournie</p>"
+    }
+  },
+  "sys_person_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_due_document": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_document_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "cfg_document_template": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_document_template_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_collection": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "collection_key": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "collection_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "verbose": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_exposed": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "ref_collection_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "has_row_level_security": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    }
+  },
+  "ref_entity": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "ref_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "ref_named_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ops_contact_us": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "full_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "email": {
+      "type": "EmailStr",
+      "nullable": false,
+      "default": null
+    },
+    "phone_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "subject": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "message": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "contact_date": {
+      "type": "date",
+      "nullable": false,
+      "default": null
+    },
+    "resolved": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "resolution_note": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_document_template": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "ref_document_template_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "cfg_required_document": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_document_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "sys_organization_agent": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "matricule": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "cfg_function_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "cfg_organism_chart_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "cfg_grade_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_person_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_marital_status": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_application": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "order_by": {
+      "type": "int",
+      "nullable": false,
+      "default": 0
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune description fournie.</p>"
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "app_accessible_to_all_profil_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_person_relationship": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_person_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "related_person_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_kinship_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "relationship_start_date": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "relationship_end_date": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_user": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "first_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "last_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sur_name": {
+      "type": "string",
+      "nullable": true,
+      "default": ""
+    },
+    "email": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "phone_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "address": {
+      "type": "string",
+      "nullable": true,
+      "default": ""
+    },
+    "emails": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "phone_numbers": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "account_status": {
+      "type": "AccountStatusFlag",
+      "nullable": true,
+      "default": "AccountStatusFlag.INACTIVE"
+    },
+    "username": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "password": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "user_account_hash": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "user_account_socket_hash": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "gender": {
+      "type": "EGender",
+      "nullable": false,
+      "default": "EGender.MALE"
+    },
+    "sys_organization_id": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_role_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_person_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "login_fail_attempt_count": {
+      "type": "int",
+      "nullable": false,
+      "default": 0
+    },
+    "login_locked_until": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "login_fail_status": {
+      "type": "ELoginResetPasswordFailStatus",
+      "nullable": false,
+      "default": "ELoginResetPasswordFailStatus.NORMAL"
+    },
+    "reset_password_fail_attempt_count": {
+      "type": "int",
+      "nullable": false,
+      "default": 0
+    },
+    "reset_password_locked_until": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "reset_password_fail_status": {
+      "type": "ELoginResetPasswordFailStatus",
+      "nullable": false,
+      "default": "ELoginResetPasswordFailStatus.NORMAL"
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "registration_origin": {
+      "type": "ERegistrationOrigin",
+      "nullable": false,
+      "default": "ERegistrationOrigin.REGISTRATION"
+    },
+    "cfg_organism_chart_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "others": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    }
+  },
+  "rbac_role": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "system_reserved_actions": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_core_role_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "cfg_organism_chart_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_children_display_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "EMenuChildrenDisplayFlag",
+      "nullable": false,
+      "default": "EMenuChildrenDisplayFlag.NONE"
+    }
+  },
+  "ref_fiscal_year": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "start_date": {
+      "type": "date",
+      "nullable": false,
+      "default": null
+    },
+    "end_date": {
+      "type": "date",
+      "nullable": false,
+      "default": null
+    },
+    "number_of_months": {
+      "type": "int",
+      "nullable": false,
+      "default": 0
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_action": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "ERbacActionFlag",
+      "nullable": false,
+      "default": "ERbacActionFlag.STANDALONE_ACTION"
+    },
+    "hard_code_flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_permission_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "is_standalone": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    }
+  },
+  "ref_eye_color": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "hex_code": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    }
+  },
+  "saas_version": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "version_name": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "minor": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "major": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "patch": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "url_segment": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_current": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_validated": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "developers": {
+      "type": "array",
+      "nullable": false,
+      "default": null
+    },
+    "release_notes_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune note fournie."
+    },
+    "release_notes_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune note fournie.</p>"
+    }
+  },
+  "ops_validation_request": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "next_validator_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "endpoint_path": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "endpoint_method": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "collection_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "operation_type": {
+      "type": "EMultipleValidationType",
+      "nullable": false,
+      "default": "EMultipleValidationType.CREATE"
+    },
+    "data": {
+      "type": "object",
+      "nullable": true,
+      "default": null
+    },
+    "upsert_query": {
+      "type": "object",
+      "nullable": true,
+      "default": null
+    },
+    "target_document_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "download_requested_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "status": {
+      "type": "EMultipleValidationStatus",
+      "nullable": true,
+      "default": "EMultipleValidationStatus.PENDING"
+    },
+    "validator_decisions": {
+      "type": "array",
+      "nullable": true,
+      "default": null
+    },
+    "validator_users": {
+      "type": "array",
+      "nullable": false,
+      "default": null
+    },
+    "download_url": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "download_email": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_profil": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "cfg_organism_chart_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_profile_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "system_reserved_actions": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    }
+  },
+  "ref_document_template_page": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "template_content": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "template_engine_type": {
+      "type": "ETemplateEngineType",
+      "nullable": false,
+      "default": "ETemplateEngineType.HTML"
+    },
+    "ref_document_template_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_caracteristic": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "string": {
+      "type": "unknown",
+      "nullable": false,
+      "default": null
+    },
+    "double": {
+      "type": "unknown",
+      "nullable": false,
+      "default": null
+    },
+    "currency_double": {
+      "type": "with",
+      "nullable": false,
+      "default": null
+    },
+    "long_text": {
+      "type": "textarea",
+      "nullable": false,
+      "default": null
+    },
+    "text_editor": {
+      "type": "html",
+      "nullable": false,
+      "default": null
+    },
+    "date_period": {
+      "type": "we",
+      "nullable": false,
+      "default": null
+    },
+    "data_source": {
+      "type": "array",
+      "nullable": false,
+      "default": null
+    },
+    "specific_data_source": {
+      "type": "color",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "data_type": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_bank_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    }
+  },
+  "cfg_entity_availability": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "rbac_path_guard": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "sys_application_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_menu_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "is_standalone": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "path": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "path_guard": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    }
+  },
+  "rbac_restricted_api_consumer": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "is_hidden": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_locked": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "ref_api_consumer_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_field_of_study": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_language": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "short_code": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "long_code": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_budget_year": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "year": {
+      "type": "int",
+      "nullable": false,
+      "default": null
+    },
+    "order_by": {
+      "type": "int",
+      "nullable": true,
+      "default": 0
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "is_current_year": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "last_year_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "sys_person_guardianship": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_person_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "guardian_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_legal_guardianship_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "guardianship_start_date": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "guardianship_end_date": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "is_active": {
+      "type": "bool",
+      "nullable": false,
+      "default": true
+    }
+  },
+  "rbac_user_validator": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "has_validation_access": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_sudo_action_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_bank": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "abreviation": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_bank_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "others": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    }
+  },
+  "ref_beneficiary": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "others": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    }
+  },
+  "ref_icon": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "icon": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "flag": {
+      "type": "EIconFlag",
+      "nullable": false,
+      "default": "EIconFlag.STANDARD_SVG"
+    },
+    "hard_code_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_theme": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_current_theme": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": false,
+      "default": "<p>Aucune description fournie.</p>"
+    }
+  },
+  "cfg_user_signature": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_configured": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "arch_file_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_document": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    }
+  },
+  "cfg_currency_exchange": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "base_currency_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_currency_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "value": {
+      "type": "double",
+      "nullable": false,
+      "default": 0.0
+    },
+    "ref_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_school_level": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "rbac_endpoint": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "rbac_title_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "is_leaf": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_primary": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_sudo_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "is_sudo_group_action": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "description_html": {
+      "type": "string",
+      "nullable": true,
+      "default": "<p>aucune description fournie</p>"
+    },
+    "flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "ref_data_display_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "EDataDisplayTypeFlag",
+      "nullable": false,
+      "default": "EDataDisplayTypeFlag.NONE"
+    }
+  },
+  "ops_distributed_lock": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "lock_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "process_id_str": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "acquired_at": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "expires_at": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "released_at": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "expired_at": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "status": {
+      "type": "EDistributedLockStatusFlag",
+      "nullable": false,
+      "default": "EDistributedLockStatusFlag.ACTIVE"
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    }
+  },
+  "ref_collection_crud_info": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "label": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "parent_field_name": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "rbac_endpoint_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "ECollectionCrudInfoFlag",
+      "nullable": false,
+      "default": "ECollectionCrudInfoFlag.NONE"
+    },
+    "hard_code_flag": {
+      "type": "string",
+      "nullable": true,
+      "default": "main"
+    }
+  },
+  "rbac_sudo_action_confirmation_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "flag": {
+      "type": "ESudoActionTypeFlag",
+      "nullable": false,
+      "default": "ESudoActionTypeFlag.TOTP"
+    },
+    "title": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    },
+    "totp_app_description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "aucune description fournie"
+    }
+  },
+  "ref_api_consumer": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "consumer_key": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "consumer_hash": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "restricted": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "can_receive_totp_validation_push": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "meta": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "flag": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ntf_notification": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "title": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "notification": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "is_read": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    }
+  },
+  "ref_named_entity": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "named_entity_flag": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": true,
+      "default": "Aucune description fournie."
+    },
+    "ref_named_entity_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "sys_person": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "first_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "last_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sur_name": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "gender": {
+      "type": "EGender",
+      "nullable": false,
+      "default": "EGender.MALE"
+    },
+    "birth_date": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "birth_city": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "ref_birth_country_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "ref_nationality_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "ref_marital_status_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "number_of_children": {
+      "type": "int",
+      "nullable": true,
+      "default": 0
+    },
+    "ref_religion_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "address_line1": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "address_line2": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "postal_code": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "home_town": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_home_country_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "phone_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "email": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "national_id_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "passport_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "driving_license_number": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "ref_eye_color_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "ref_blood_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "height_in_cm": {
+      "type": "double",
+      "nullable": true,
+      "default": null
+    },
+    "weight_in_kg": {
+      "type": "double",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ops_data_collected": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "ref_data_to_collect_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_saas_config": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sms_sender_name": {
+      "type": "string",
+      "nullable": false,
+      "default": "SenatDigit"
+    },
+    "theme_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "contact_info": {
+      "type": "array",
+      "nullable": false,
+      "default": null
+    },
+    "currency_exchange_setup_scope": {
+      "type": "CurrencyExchangeSetupScope",
+      "nullable": true,
+      "default": "CurrencyExchangeSetupScope.SYSTEM"
+    }
+  },
+  "ref_country": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "code": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "nationality": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "flag": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "unique_key": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "alpha_code_2": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "alpha_code_3": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_data_display_type": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "targeted_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_data_display_type_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ref_mfa": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "usage_description": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "config_description": {
+      "type": "string",
+      "nullable": false,
+      "default": "Aucune description fournie."
+    },
+    "is_default": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "purpose": {
+      "type": "EMfaPurpose",
+      "nullable": false,
+      "default": "EMfaPurpose.LOGIN_ONLY"
+    },
+    "flag": {
+      "type": "MFaFlag",
+      "nullable": false,
+      "default": "MFaFlag.EMAIL"
+    }
+  },
+  "cfg_user_device": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "device_id_str": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "is_authenticated": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "device_info": {
+      "type": "Annotated",
+      "nullable": false,
+      "default": null
+    },
+    "status": {
+      "type": "EUserDeviceStatus",
+      "nullable": false,
+      "default": "EUserDeviceStatus.PENDING_VALIDATION"
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "ops_user_login_history": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "status": {
+      "type": "ELoginStatus",
+      "nullable": false,
+      "default": "ELoginStatus.NONE"
+    },
+    "session_id_str": {
+      "type": "string",
+      "nullable": true,
+      "default": ""
+    },
+    "session_expected_expiration": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "ip_address": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "cfg_user_device_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "otp": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_user_mfa": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "secret": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "is_configured": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_mfa_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  },
+  "cfg_user_config": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "sys_user_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "ref_language_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    },
+    "sys_app_theme_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "dark_mode": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "allowed_device_count": {
+      "type": "int",
+      "nullable": false,
+      "default": 1
+    }
+  },
+  "arch_folder": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "description_str": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "moved_to_trash_at": {
+      "type": "date",
+      "nullable": true,
+      "default": null
+    },
+    "arch_folder_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "moved_to_trash": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_masked": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_locked": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    }
+  },
+  "arch_file": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "file_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "file_url": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "file_original_name": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "file_type": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "file_extension": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "file_size": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "file_path": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "moved_to_trash": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_masked": {
+      "type": "bool",
+      "nullable": false,
+      "default": false
+    },
+    "is_locked": {
+      "type": "bool",
+      "nullable": false,
+      "default": true
+    },
+    "is_local_file": {
+      "type": "bool",
+      "nullable": true,
+      "default": true
+    },
+    "remote_arch_file_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "remote_arch_file_url": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "file_str_id_composed": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "file_generated_uuid": {
+      "type": "string",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    }
+  },
+  "cfg_row_level_security": {
+    "id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "identifier": {
+      "type": "string",
+      "nullable": false,
+      "default": null
+    },
+    "row_level_security_is_enabled": {
+      "type": "bool",
+      "nullable": true,
+      "default": false
+    },
+    "users_included_for_check": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "by_passed_users": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "by_passed_roles": {
+      "type": "array",
+      "nullable": true,
+      "default": []
+    },
+    "ref_collection_id": {
+      "type": "PydanticObjectId",
+      "nullable": true,
+      "default": null
+    },
+    "sys_organization_id": {
+      "type": "PydanticObjectId",
+      "nullable": false,
+      "default": null
+    }
+  }
+}

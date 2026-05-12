@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "module": "presence",
+    "feature_slice": "MVP §3.5 step 6",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Séance & Présence section",
+    "pptx_anchors": "Slide 7 (empreintes/badges), Slide 12 (terminal contrôle présence)"
+  },
+  "permission_titles": [
+    {
+      "key": "presence.sign_self",
+      "title_fr": "Signer ma présence (e-signature)",
+      "title_en": "Sign my presence (e-signature)",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/presence_signature"}]
+    },
+    {
+      "key": "presence.sign_self_biometric",
+      "title_fr": "Signer ma présence (empreinte)",
+      "title_en": "Sign presence (biometric)",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/presence_signature_biometric"}],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "presence.sign_self_nfc",
+      "title_fr": "Signer ma présence (badge NFC)",
+      "title_en": "Sign presence (NFC badge)",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/presence_signature_nfc"}],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "presence.mark_manual",
+      "title_fr": "Marquer présence (manuel greffier)",
+      "title_en": "Mark presence manually (greffier)",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/mark/presence_manual"}],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "presence.read_self",
+      "title_fr": "Voir mon historique de présence",
+      "title_en": "Read my presence history",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/presence_self"}]
+    },
+    {
+      "key": "presence.read",
+      "title_fr": "Voir la présence (toutes)",
+      "title_en": "Read all presence (greffier)",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/presence"}]
+    }
+  ]
+}

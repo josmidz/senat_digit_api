@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BON DE DÉPENSE ÉLECTRONIQUE - ÉTAPE 3: PAIEMENT</title>
+    <style type="text/css">
+      /* Modern Professional Styles */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 11px;
+        margin: 0;
+        padding: 12px;
+        line-height: 1.3;
+        color: #1a1a1a;
+        background: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      p, h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Compact Typography Hierarchy */
+      h1 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.025em;
+        margin: 0.25rem 0;
+      }
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1e293b;
+        letter-spacing: -0.025em;
+        margin: 0.2rem 0;
+      }
+
+      h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #334155;
+        margin: 0.2rem 0;
+      }
+
+      h4 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #475569;
+        margin: 0.15rem 0;
+      }
+
+      h5 {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #64748b;
+        margin: 0.1rem 0;
+      }
+
+      h6 {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #64748b;
+        margin: 0.1rem 0;
+      }
+
+      p {
+        font-size: 0.8rem;
+        color: #374151;
+        font-weight: 400;
+        margin: 0.1rem 0;
+      }
+
+      /* Compact Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.5rem 0;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      th {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+        border: none;
+      }
+
+      td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        color: #374151;
+        border-bottom: 1px solid #f3f4f6;
+        border-left: none;
+        border-right: none;
+        vertical-align: top;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:hover {
+        background-color: #f8fafc;
+      }
+
+      /* Layout Classes */
+      .grid {
+        display: grid;
+      }
+
+      .grid-cols-12 {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .col-span-9 {
+        grid-column: span 9 / span 9;
+      }
+
+      .col-span-3 {
+        grid-column: span 3 / span 3;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-start {
+        align-items: flex-start;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-end {
+        justify-content: flex-end;
+      }
+
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-left {
+        text-align: left;
+      }
+
+      .space-x-4 > * + * {
+        margin-left: 1rem;
+      }
+
+      .space-x-3 > * + * {
+        margin-left: 0.75rem;
+      }
+
+      .h-20 {
+        height: 5rem;
+      }
+
+      .w-20 {
+        width: 5rem;
+      }
+
+      .h-24 {
+        height: 6rem;
+      }
+
+      .w-24 {
+        width: 6rem;
+      }
+
+      .h-28 {
+        height: 7em;
+      }
+
+      .rounded {
+        border-radius: 0.25rem;
+      }
+
+      .rounded-lg {
+        border-radius: 0.5rem;
+      }
+
+      .rounded-xl {
+        border-radius: 0.75rem;
+      }
+
+      .border {
+        border: 1px solid #d1d5db;
+      }
+
+      .border-light-gray-200 {
+        border-color: #e5e7eb;
+      }
+
+      .bg-light-white {
+        background-color: #ffffff;
+      }
+
+      .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .flex-1 {
+        flex: 1 1 0%;
+      }
+
+      /* Compact Card & Layout Styles */
+      .card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f1f5f9;
+      }
+
+      .header-card {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .info-section {
+        background: #fef2f2;
+        border-radius: 6px;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border-left: 3px solid #dc2626;
+      }
+
+      .payment-section {
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.75rem 0;
+        border: 1px solid #10b981;
+      }
+
+      .payment-field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.75rem;
+      }
+
+      .payment-field:last-child {
+        border-bottom: none;
+      }
+
+      .payment-label {
+        font-weight: 600;
+        color: #374151;
+        min-width: 120px;
+        font-size: 0.75rem;
+      }
+
+      .payment-value {
+        color: #1f2937;
+        font-weight: 500;
+        text-align: right;
+        font-size: 0.75rem;
+      }
+
+      .signature-area {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-radius: 6px;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #bae6fd;
+      }
+
+      .signature-box {
+        background: #ffffff;
+        border: 1px solid #94a3b8;
+        border-radius: 4px;
+        padding: 0.5rem;
+        text-align: center;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .beneficiary-signature-area {
+        background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);
+        border-radius: 6px;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border: 1px solid #a855f7;
+      }
+
+      /* Additional Professional Styles */
+      .text-slate-800 { color: #1e293b; }
+      .text-slate-600 { color: #475569; }
+      .text-slate-500 { color: #64748b; }
+      .text-slate-400 { color: #94a3b8; }
+      
+      .space-y-4 > * + * { margin-top: 1rem; }
+      .max-w-sm { max-width: 24rem; }
+      
+      /* Responsive Design */
+      @media (min-width: 768px) {
+        .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      
+      /* Print Styles */
+      @media print {
+        body { font-size: 12px; }
+        .signature-area { page-break-inside: avoid; }
+        .card { page-break-inside: avoid; }
+        .payment-section { page-break-inside: avoid; }
+        .beneficiary-signature-area { page-break-inside: avoid; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Professional Header -->
+    <div class="header-card">
+      <div class="grid grid-cols-12 gap-4">
+        <!-- Left Header -->
+        <div class="flex col-span-9 items-start space-x-4">
+          <div class="flex justify-center">
+            <div class="h-20 w-20 rounded-lg flex items-center justify-center bg-gradient-to-br from-red-50 to-rose-100 border border-red-200">
+              <!-- Logo placeholder -->
+            </div>
+          </div>
+          <div class="flex flex-col text-left ml-4">
+            <h2 class="mb-2 text-slate-800">{{republic if republic else 'République Démocratique du Congo'}}</h2>
+            <h4 class="mb-1 text-slate-600">{{province if province else 'Province du Sud-Kivu'}}</h4>
+            <h5 class="text-slate-500">{{ministere if ministere else 'Ministère des Finances'}}</h5>
+            <h6 class="text-slate-400 mt-1">{{expense_chain if expense_chain else 'Chaîne de dépenses'}}</h6>
+          </div>
+        </div>
+        <!-- End Left Header -->
+
+        <!-- QR Code -->
+        <div class="flex justify-end col-span-3">
+          <div class="bg-light-white rounded-xl p-3 shadow-lg border border-light-gray-200">
+            <img class="h-20 w-20 rounded-lg" src="{{qr_code}}" alt="QR Code" />
+          </div>
+        </div>
+        <!-- End QR Code -->
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <div class="text-center" style="margin: 0.5rem 0;">
+      <div class="inline-block">
+        <h1 style="font-size: 1.2rem; font-weight: 700; background: linear-gradient(to right, #dc2626, #b91c1c); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0.25rem 0;">
+          {{electronic_bde if electronic_bde else 'BON DE DÉPENSE ÉLECTRONIQUE'}}
+        </h1>
+        <h2 style="font-size: 0.9rem; font-weight: 600; color: #dc2626; margin: 0.1rem 0;">
+          ÉTAPE 3: PAIEMENT EFFECTUÉ
+        </h2>
+        <div style="height: 2px; background: linear-gradient(to right, #dc2626, #b91c1c); border-radius: 2px;"></div>
+      </div>
+    </div>
+    <!-- End Main Title -->
+
+    <!-- Sub Title -->
+    {% if cases and cases.display_title and cases.display_value %}
+    <div class="info-section">
+      <h3 class="text-lg font-semibold text-light-gray-800">{{cases.display_title}} {{cases.display_value}}</h3>
+    </div>
+    {% endif %}
+    <!-- End Sub Title -->
+
+    <!-- Payment Information Section -->
+    {% if payment_info %}
+    <div class="payment-section">
+      <h2 class="border-b pb-3 font-bold" style="color: #065f46; font-size: 0.95rem; margin-bottom: 1rem;">Informations de Paiement</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1rem;">
+        <!-- Payment Date -->
+        {% if payment_info.payment_date %}
+        <div class="payment-field">
+          <span class="payment-label">Date de paiement:</span>
+          <span class="payment-value" style="color: #059669; font-weight: 600;">{{payment_info.payment_date}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Payment Method -->
+        {% if payment_info.payment_method %}
+        <div class="payment-field">
+          <span class="payment-label">Méthode de paiement:</span>
+          <span class="payment-value">{{payment_info.payment_method}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Transaction Reference -->
+        {% if payment_info.transaction_ref %}
+        <div class="payment-field">
+          <span class="payment-label">Référence transaction:</span>
+          <span class="payment-value">{{payment_info.transaction_ref}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Amount Paid -->
+        {% if payment_info.amount_paid %}
+        <div class="payment-field">
+          <span class="payment-label">Montant payé:</span>
+          <span class="payment-value" style="color: #059669; font-weight: 700; font-size: 0.85rem;">{{payment_info.amount_paid}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Payment Status -->
+        {% if payment_info.status %}
+        <div class="payment-field">
+          <span class="payment-label">Statut:</span>
+          <span class="payment-value" style="color: #059669; font-weight: 600; text-transform: uppercase;">{{payment_info.status}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Bank Reference -->
+        {% if payment_info.bank_reference %}
+        <div class="payment-field">
+          <span class="payment-label">Référence bancaire:</span>
+          <span class="payment-value">{{payment_info.bank_reference}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Processed By -->
+        {% if payment_info.processed_by %}
+        <div class="payment-field">
+          <span class="payment-label">Traité par:</span>
+          <span class="payment-value">{{payment_info.processed_by}}</span>
+        </div>
+        {% endif %}
+
+        <!-- Payment Notes -->
+        {% if payment_info.notes %}
+        <div class="payment-field" style="grid-column: 1 / -1;">
+          <span class="payment-label">Notes:</span>
+          <span class="payment-value">{{payment_info.notes}}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <!-- End Payment Information Section -->
+
+    <!-- Account Information -->
+    {% if account_info %}
+    <div class="card">
+      <h3 style="font-size: 0.9rem; font-weight: 600; color: #374151; margin: 0.3rem 0; padding-bottom: 0.3rem; border-bottom: 1px solid #e5e7eb;">Compte de Paiement</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 0.75rem;">
+        <!-- Account Type -->
+        {% if account_info.account_type %}
+        <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #6b7280; margin: 0.25rem 0;">
+          <div class="flex justify-between items-center">
+            <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">Type de compte</span>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{account_info.account_type}}</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Account Number -->
+        {% if account_info.account_number %}
+        <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #6b7280; margin: 0.25rem 0;">
+          <div class="flex justify-between items-center">
+            <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">Numéro de compte</span>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{account_info.account_number}}</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Bank Name -->
+        {% if account_info.bank_name %}
+        <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #6b7280; margin: 0.25rem 0;">
+          <div class="flex justify-between items-center">
+            <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">Banque</span>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{account_info.bank_name}}</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Account Holder -->
+        {% if account_info.account_holder %}
+        <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #6b7280; margin: 0.25rem 0;">
+          <div class="flex justify-between items-center">
+            <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">Titulaire</span>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{account_info.account_holder}}</span>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <!-- End Account Information -->
+
+    <!-- Beneficiary Section with Signature -->
+    {% if beneficiary %}
+    <div class="beneficiary-signature-area">
+      <h2 style="color: #7c2d12; font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid #e9d5ff; padding-bottom: 0.5rem;">Bénéficiaire et Signature</h2>
+
+      <div class="grid grid-cols-2" style="gap: 1rem;">
+        <!-- Left: Beneficiary Info -->
+        <div>
+          {% if beneficiary.type_lbl %}
+          <div style="margin-bottom: 0.5rem;">
+            <span style="font-weight: 600; color: #374151; font-size: 0.75rem;">Type: </span>
+            <span style="color: #1f2937; font-weight: 500; font-size: 0.75rem;">{{beneficiary.type_lbl}}</span>
+          </div>
+          {% endif %}
+
+          <!-- Physical or Agent Beneficiary Info -->
+          {% if beneficiary.type == 'physical_beneficiary' or beneficiary.type == 'agent_beneficiary' %}
+          {% if beneficiary.lastname %}
+          <div class="payment-field">
+            <span class="payment-label">Nom:</span>
+            <span class="payment-value">{{beneficiary.lastname}}</span>
+          </div>
+          {% endif %}
+          {% if beneficiary.firstname %}
+          <div class="payment-field">
+            <span class="payment-label">Prénom:</span>
+            <span class="payment-value">{{beneficiary.firstname}}</span>
+          </div>
+          {% endif %}
+          {% if beneficiary.id_number %}
+          <div class="payment-field">
+            <span class="payment-label">{% if beneficiary.type == 'agent_beneficiary' %}Matricule{% else %}ID{% endif %}:</span>
+            <span class="payment-value">{{beneficiary.id_number}}</span>
+          </div>
+          {% endif %}
+          {% endif %}
+
+          <!-- Legal Beneficiary Info -->
+          {% if beneficiary.type == 'legal_beneficiary' %}
+          {% if beneficiary.company_name %}
+          <div class="payment-field">
+            <span class="payment-label">Entreprise:</span>
+            <span class="payment-value">{{beneficiary.company_name}}</span>
+          </div>
+          {% endif %}
+          {% if beneficiary.id_number %}
+          <div class="payment-field">
+            <span class="payment-label">ID Entreprise:</span>
+            <span class="payment-value">{{beneficiary.id_number}}</span>
+          </div>
+          {% endif %}
+          {% endif %}
+        </div>
+
+        <!-- Right: Beneficiary Signature (only for physical and agent) -->
+        <div class="text-center">
+          {% if beneficiary.type == 'physical_beneficiary' or beneficiary.type == 'agent_beneficiary' %}
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin-bottom: 0.5rem;">Signature du Bénéficiaire</h4>
+
+          {% if beneficiary_signature and beneficiary_signature.signature_url %}
+          <div class="signature-box" style="background: #ffffff; border: 1px solid #a855f7; margin: 0.25rem 0; width: 120px; height: 60px; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 2px; box-sizing: border-box;">
+            <img src="{{beneficiary_signature.signature_url}}" alt="Signature Bénéficiaire" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;" />
+          </div>
+          <p style="font-size: 0.6rem; color: #6b7280; margin: 0.25rem 0;">{{beneficiary_signature.signature_date if beneficiary_signature.signature_date else 'Date de signature'}}</p>
+          {% else %}
+          <div class="signature-box" style="margin: 0.25rem 0; width: 120px; height: 60px; border: 2px dashed #a855f7;">
+            <span style="color: #a855f7; font-size: 0.65rem;">Signature requise</span>
+          </div>
+          <p style="font-size: 0.6rem; color: #ef4444;">Signature du bénéficiaire requise</p>
+          {% endif %}
+          {% else %}
+          <div style="padding: 1rem; text-align: center;">
+            <p style="font-size: 0.7rem; color: #6b7280; font-style: italic;">Signature non requise pour les personnes morales</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- End Beneficiary Section -->
+
+    <!-- Expense Table -->
+    {% if expense_items %}
+    <div class="card">
+      <h3 style="font-size: 0.9rem; font-weight: 600; color: #374151; margin: 0.3rem 0; padding-bottom: 0.3rem; border-bottom: 1px solid #e5e7eb;">Détails des Dépenses Payées</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+            <th>Montant Total</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in expense_items %}
+          <tr>
+            <td>{{item.description if item.description else '-'}}</td>
+            <td>{{item.quantity if item.quantity else '-'}}</td>
+            <td>{{item.unit_price if item.unit_price else '-'}}</td>
+            <td style="font-weight: 600;">{{item.total_amount if item.total_amount else '-'}}</td>
+            <td><span style="color: #059669; font-weight: 600; font-size: 0.7rem;">PAYÉ</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+    <!-- End Expense Table -->
+
+    <!-- Dual Signature Area -->
+    <div class="signature-area">
+      <div class="grid grid-cols-2" style="gap: 1rem; margin: 0.25rem 0;">
+        <!-- Left: Responsible Signature -->
+        <div class="text-center">
+          {% if credit_manager %}
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin: 0;">{{credit_manager.display_title if credit_manager.display_title else 'Responsable'}}</h4>
+          <p style="font-size: 0.65rem; color: #6b7280; margin: 0;">{{credit_manager.display_value if credit_manager.display_value else 'Nom du responsable'}}</p>
+          {% else %}
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin: 0;">Responsable</h4>
+          {% endif %}
+
+          {% if user_signature and user_signature.signature_url %}
+          <div class="signature-box" style="background: #ffffff; border: 1px solid #93c5fd; margin: 0.25rem auto; width: 150px; height: 60px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <img src="{{user_signature.signature_url}}" alt="Signature" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;" />
+          </div>
+          <p style="font-size: 0.6rem; color: #6b7280; margin: 0;">{{user_signature.signature_date}}</p>
+          {% else %}
+          <div class="signature-box" style="margin: 0.25rem auto; width: 100px; height: 35px;">
+            <span style="color: #9ca3af; font-size: 0.6rem;">Signature</span>
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Right: Payment Confirmation -->
+        <div class="text-center">
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin: 0;">Confirmation de Paiement</h4>
+          <p style="font-size: 0.65rem; color: #6b7280; margin: 0;">Système automatisé</p>
+
+          <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 4px; margin: 0.25rem auto; width: 100px; height: 35px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #059669; font-size: 0.6rem; font-weight: 600;">✓ PAYÉ</span>
+          </div>
+          <p style="font-size: 0.6rem; color: #059669; margin: 0;">{{payment_info.payment_date if payment_info and payment_info.payment_date else 'Date de paiement'}}</p>
+        </div>
+      </div>
+
+      <!-- Minimal Footer -->
+      <div style="margin-top: 0.5rem; padding-top: 0.25rem; border-top: 1px solid #e5e7eb; text-align: center;">
+        <p style="font-size: 0.6rem; color: #9ca3af;">Document généré électroniquement - Étape 3: Paiement Effectué</p>
+      </div>
+    </div>
+    <!-- End Signature Area -->
+  </body>
+</html>

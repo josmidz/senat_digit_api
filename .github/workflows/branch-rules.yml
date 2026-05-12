@@ -1,0 +1,114 @@
+name: Branch Rules
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - local
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validate-branches:
+    name: Validate Branch Rules
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Gather PR context
+        id: ctx
+        run: |
+          echo "head_ref=${{ github.head_ref }}" >> "$GITHUB_OUTPUT"
+          echo "base_ref=${{ github.base_ref }}" >> "$GITHUB_OUTPUT"
+          echo "pr_title=${{ github.event.pull_request.title }}" >> "$GITHUB_OUTPUT"
+          echo "mergeable_state=${{ github.event.pull_request.mergeable_state }}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate branch rules
+        run: |
+          set -eo pipefail
+
+          HEAD="${{ steps.ctx.outputs.head_ref }}"
+          BASE="${{ steps.ctx.outputs.base_ref }}"
+          TITLE="${{ steps.ctx.outputs.pr_title }}"
+          MERGEABLE="${{ steps.ctx.outputs.mergeable_state }}"
+
+          echo "🔍 Validating PR: '$HEAD' → '$BASE'"
+          echo "📌 Title: $TITLE"
+          echo "📌 Mergeable: $MERGEABLE"
+          echo ""
+
+          # ================================================================
+          # GLOBAL BLOCKS (source branches not allowed)
+          # ================================================================
+          if [[ "$HEAD" =~ ^(main|dev|local)$ ]]; then
+            echo "🚫 ERROR: PRs directly from 'main', 'dev', or 'local' are not allowed."
+            exit 1
+          fi
+
+          if [[ "$HEAD" =~ ^release/ && "$BASE" != "main" ]]; then
+            echo "🚫 ERROR: release/* branches can only target 'main'."
+            exit 1
+          fi
+
+          # ================================================================
+          # TARGET: local
+          # ================================================================
+          if [[ "$BASE" == "local" ]]; then
+            if [[ ! "$HEAD" =~ ^experiment/ ]]; then
+              echo "🚫 ERROR: Only 'experiment/*' branches may target 'local'."
+              exit 1
+            fi
+          fi
+
+          # experiment/* → ONLY local
+          if [[ "$HEAD" =~ ^experiment/ && "$BASE" != "local" ]]; then
+            echo "🚫 ERROR: experiment/* branches can only target 'local'."
+            exit 1
+          fi
+
+          # ================================================================
+          # TARGET: dev
+          # ---------------------------------------------------------------
+          # Allowed typical development branches:
+          #   feature/*, bugfix/*, hotfix/*, chore/*, task/*, refactor/*, docs/*
+          # ================================================================
+          if [[ "$BASE" == "dev" ]]; then
+            if [[ ! "$HEAD" =~ ^(feature|bugfix|hotfix|chore|task|refactor|docs)/ ]]; then
+              echo "🚫 ERROR: dev only accepts:"
+              echo "    feature/*, bugfix/*, hotfix/*, chore/*, task/*, refactor/*, docs/*"
+              exit 1
+            fi
+          fi
+
+          # ================================================================
+          # TARGET: main
+          # ================================================================
+          if [[ "$BASE" == "main" ]]; then
+            # Strict semver release only
+            if [[ ! "$HEAD" =~ ^release/[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "🚫 ERROR: main only accepts release/x.y.z branches."
+              exit 1
+            fi
+          fi
+
+          # ================================================================
+          # PR TITLE RULES
+          # ================================================================
+          if [[ ! "$TITLE" =~ ^(FIX|FEAT|DOC|CHORE|RELEASE|HOTFIX):\  ]]; then
+            echo "🚫 ERROR: PR title must start with one of:"
+            echo "    FIX:, FEAT:, DOC:, CHORE:, RELEASE:, HOTFIX:"
+            echo "Followed by a space."
+            exit 1
+          fi
+
+          # ================================================================
+          # BRANCH BEHIND VALIDATION
+          # ================================================================
+          if [[ "$MERGEABLE" == "behind" ]]; then
+            echo "🚫 ERROR: Branch is behind the base branch. Please update first."
+            exit 1
+          fi
+
+          echo "✅ Branch rules validated successfully."

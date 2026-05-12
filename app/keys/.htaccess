@@ -1,0 +1,12 @@
+# Prevent access to all files in this directory
+Order deny,allow
+Deny from all
+
+# Prevent listing of directory contents
+Options -Indexes
+
+# Disable script execution
+<FilesMatch "\.(key|py|json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

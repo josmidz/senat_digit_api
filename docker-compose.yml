@@ -1,0 +1,150 @@
+# =============================================================================
+# SenatDigit Apps API - Docker Compose
+# Supports: local, dev (development), prod (production)
+#
+# Usage:
+#   ./docker/docker-run.sh up local    # Start local environment
+#   ./docker/docker-run.sh up dev      # Start development environment
+#   ./docker/docker-run.sh up prod     # Start production environment
+#   ./docker/docker-run.sh seed local  # Run seeds for local
+#   ./docker/docker-run.sh seed dev    # Run seeds for dev
+#   ./docker/docker-run.sh seed prod   # Run seeds for prod
+# =============================================================================
+
+x-app-base: &app-base
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  volumes:
+    - ./logs:/app/logs
+    - ./bash/seeds/logs:/app/bash/seeds/logs
+    - ./static:/app/static
+    - ./templates:/app/templates
+    - ./firebase-service-account.json:/app/firebase-service-account.json:ro
+  networks:
+    - senat_digit_net
+
+# ==========================
+# Services
+# ==========================
+services:
+
+  # --------------------------
+  # LOCAL environment
+  # --------------------------
+  senat_digit_api_local:
+    <<: *app-base
+    container_name: senat_digit_api_local
+    env_file: .env.local
+    environment:
+      - ENV=local
+      - PYTHONUNBUFFERED=1
+      - REDIS_HOST=redis_local
+    ports:
+      - "${LOCAL_APP_PORT:-9888}:${LOCAL_APP_PORT:-9888}"
+    depends_on:
+      mongo_local:
+        condition: service_healthy
+      redis_local:
+        condition: service_healthy
+    volumes:
+      - ./logs:/app/logs
+      - ./bash/seeds/logs:/app/bash/seeds/logs
+      - ./static:/app/static
+      - ./templates:/app/templates
+      - ./firebase-service-account.json:/app/firebase-service-account.json:ro
+      # Mount source code for hot-reload in local
+      - ./app:/app/app
+      - ./configs:/app/configs
+    profiles:
+      - local
+
+  mongo_local:
+    image: mongo:7
+    container_name: senat_digit_mongo_local
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - senat_digit_mongo_local_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - senat_digit_net
+    profiles:
+      - local
+
+  redis_local:
+    image: redis:7-alpine
+    container_name: senat_digit_redis_local
+    restart: unless-stopped
+    command: redis-server --requirepass ${REDIS_PASSWORD:?Set REDIS_PASSWORD in .env.local}
+    ports:
+      - "6379:6379"
+    volumes:
+      - senat_digit_redis_local_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - senat_digit_net
+    profiles:
+      - local
+
+  # --------------------------
+  # DEVELOPMENT environment
+  # --------------------------
+  senat_digit_api_dev:
+    <<: *app-base
+    container_name: senat_digit_api_dev
+    env_file: .env.development
+    environment:
+      - ENV=development
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "${DEV_APP_PORT:-5518}:${DEV_APP_PORT:-5518}"
+    profiles:
+      - dev
+
+  # --------------------------
+  # PRODUCTION environment
+  # --------------------------
+  senat_digit_api_prod:
+    <<: *app-base
+    container_name: senat_digit_api_prod
+    env_file: .env.production
+    environment:
+      - ENV=production
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "${PROD_APP_PORT:-9396}:${PROD_APP_PORT:-9396}"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: "2"
+        reservations:
+          memory: 512M
+          cpus: "0.5"
+    profiles:
+      - prod
+
+# ==========================
+# Networks
+# ==========================
+networks:
+  senat_digit_net:
+    driver: bridge
+
+# ==========================
+# Volumes
+# ==========================
+volumes:
+  senat_digit_mongo_local_data:
+  senat_digit_redis_local_data:

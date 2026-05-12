@@ -1,0 +1,169 @@
+{
+  "_meta": {
+    "module": "vote",
+    "feature_slice": "MVP §3.5 step 5 (heaviest module — secret-vote crypto + proxies)",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Vote + Pouvoirs sections",
+    "pptx_anchors": "Slide 15: 4-choice ballot, mid-scrutin type change, pouvoirs, secret votes"
+  },
+  "permission_titles": [
+    {
+      "key": "vote.cast",
+      "title_fr": "Voter",
+      "title_en": "Cast ballot",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/vote_ballot"}]
+    },
+    {
+      "key": "vote.cast_proxy",
+      "title_fr": "Voter par procuration",
+      "title_en": "Cast proxy ballot",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/vote_ballot"}],
+      "_note": "Same endpoint as vote.cast — service layer applies proxy weight automatically based on active VoteProxyModel rows. Permission distinguishes the audit story (sénateur is exercising delegated rights)."
+    },
+    {
+      "key": "vote.configure",
+      "title_fr": "Configurer un scrutin",
+      "title_en": "Configure vote",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/create/vote_config"},
+        {"method": "PATCH", "path": "/api/v1/patch/vote_config"}
+      ]
+    },
+    {
+      "key": "vote.open",
+      "title_fr": "Ouvrir un scrutin",
+      "title_en": "Open vote",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/open/vote"}]
+    },
+    {
+      "key": "vote.suspend",
+      "title_fr": "Suspendre un scrutin",
+      "title_en": "Suspend vote",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/suspend/vote"}]
+    },
+    {
+      "key": "vote.close",
+      "title_fr": "Clôturer un scrutin",
+      "title_en": "Close vote",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/close/vote"}]
+    },
+    {
+      "key": "vote.change_type_live",
+      "title_fr": "Modifier le type de scrutin en direct",
+      "title_en": "Change scrutin type mid-flight",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/change_type/vote"}]
+    },
+    {
+      "key": "vote.supervise",
+      "title_fr": "Superviser le vote",
+      "title_en": "Supervise live vote",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/detail/vote_config"},
+        {"method": "GET", "path": "/api/v1/detail/resolution_active"}
+      ]
+    },
+    {
+      "key": "vote.validate",
+      "title_fr": "Valider les résultats",
+      "title_en": "Validate results",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/validate/vote_result"}]
+    },
+    {
+      "key": "vote.read_results",
+      "title_fr": "Voir les résultats détaillés",
+      "title_en": "Read results",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/vote_result"}]
+    },
+    {
+      "key": "vote.export_pv",
+      "title_fr": "Exporter le procès-verbal",
+      "title_en": "Export procès-verbal",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/export/pv"}],
+      "_note": "Greffier-only. Generates the PV PDF, uploads to fs, creates a PROCES_VERBAL DocumentMeta linked to the séance + resolution. Demo script step 13."
+    },
+    {
+      "key": "vote.list_by_session",
+      "title_fr": "Historique par séance",
+      "title_en": "List votes by session",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/vote_by_session"}]
+    },
+    {
+      "key": "vote.list_by_text",
+      "title_fr": "Historique par texte",
+      "title_en": "List votes by text",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/vote_by_text"}]
+    },
+    {
+      "key": "proxy.assign",
+      "title_fr": "Attribuer un pouvoir",
+      "title_en": "Assign proxy",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/assign/vote_proxy"}]
+    },
+    {
+      "key": "proxy.revoke",
+      "title_fr": "Révoquer un pouvoir",
+      "title_en": "Revoke proxy",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/revoke/vote_proxy"}]
+    },
+    {
+      "key": "proxy.list",
+      "title_fr": "Lister les pouvoirs (séance)",
+      "title_en": "List proxies",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/vote_proxy"}]
+    },
+    {
+      "key": "proxy.read_self",
+      "title_fr": "Voir mes pouvoirs reçus",
+      "title_en": "List proxies received by me",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/proxy_self"}]
+    },
+    {
+      "key": "proxy.read_granted",
+      "title_fr": "Voir les pouvoirs que j'ai donnés",
+      "title_en": "List proxies I have granted",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/proxy_granted_by_me"}]
+    },
+    {
+      "key": "vote.read_ballot_self",
+      "title_fr": "Voir mes votes (mon historique)",
+      "title_en": "List my own ballots",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/vote_ballot_self"}]
+    },
+    {
+      "key": "vote.manual_tally",
+      "title_fr": "Saisir un comptage manuel (fallback)",
+      "title_en": "Record a manual tally (fallback)",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/vote_manual_tally"}]
+    }
+  ]
+}

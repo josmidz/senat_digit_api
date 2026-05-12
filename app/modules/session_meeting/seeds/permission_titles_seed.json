@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "module": "session_meeting",
+    "feature_slice": "MVP §3.5 step 2",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Séance & Présence section"
+  },
+  "permission_titles": [
+    {
+      "key": "session.read_current",
+      "title_fr": "Voir la séance en cours",
+      "title_en": "View current session",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/session_current"}]
+    },
+    {
+      "key": "session.list",
+      "title_fr": "Lister les séances",
+      "title_en": "List sessions",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/session"}]
+    },
+    {
+      "key": "session.detail",
+      "title_fr": "Voir le détail d'une séance",
+      "title_en": "View session detail",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/session"}]
+    },
+    {
+      "key": "session.create",
+      "title_fr": "Créer une séance",
+      "title_en": "Create session",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/session"}]
+    },
+    {
+      "key": "session.patch",
+      "title_fr": "Modifier une séance",
+      "title_en": "Update session",
+      "bucket": "standalone",
+      "endpoints": [{"method": "PATCH", "path": "/api/v1/patch/session"}]
+    },
+    {
+      "key": "session.set_mode",
+      "title_fr": "Définir le mode (présentiel/distance/hybride)",
+      "title_en": "Set session mode",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "PATCH", "path": "/api/v1/patch/session_mode"}]
+    },
+    {
+      "key": "session.open",
+      "title_fr": "Ouvrir une séance",
+      "title_en": "Open session",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/open/session"}]
+    },
+    {
+      "key": "session.suspend",
+      "title_fr": "Suspendre une séance",
+      "title_en": "Suspend session",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/suspend/session"}]
+    },
+    {
+      "key": "session.close",
+      "title_fr": "Clôturer une séance",
+      "title_en": "Close session",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/close/session"}]
+    },
+    {
+      "key": "session.manage_participants",
+      "title_fr": "Gérer les participants",
+      "title_en": "Manage participants",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/assign/session_participant"}]
+    },
+    {
+      "key": "session.read_quorum",
+      "title_fr": "Voir le statut du quorum",
+      "title_en": "View quorum status",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/quorum"}]
+    }
+  ]
+}

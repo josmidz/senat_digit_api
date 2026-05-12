@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "module": "notification",
+    "purpose": "Mobile inbox — bell icon + 'Notifications' screen under Plus tab",
+    "sitemap_source": "_planning/01_sitemap_v2.md — Module 8 (Notifications)"
+  },
+  "apps": [
+    {
+      "flag": "senat_digit_mobile_notifications",
+      "name": "Notifications",
+      "path": "/notifications",
+      "path_guard": "senat_digit_mobile_notifications_page",
+      "order_by": 7,
+      "is_activated": true,
+      "restricted_api_consumer_list": [
+        {"flag": "senat_digit_mobile", "is_link_activated": true}
+      ],
+      "sub_menus": [
+        {
+          "flag": "senat_digit_mobile_notifications_inbox",
+          "name": "Boîte de réception",
+          "path": "/notifications",
+          "is_activated": true
+        }
+      ]
+    }
+  ]
+}

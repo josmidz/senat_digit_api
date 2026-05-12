@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "module": "notification",
+    "feature_slice": "MVP §3.5 step 8 (in-app inbox only; FCM/APNs reserved for v1.1)",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Notifications section"
+  },
+  "permission_titles": [
+    {
+      "key": "notification.list_self",
+      "title_fr": "Voir mes notifications",
+      "title_en": "Read my notifications",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/notification_self"},
+        {"method": "POST", "path": "/api/v1/patch/notification_read"}
+      ]
+    },
+    {
+      "key": "notification.send_broadcast",
+      "title_fr": "Envoyer une notification",
+      "title_en": "Broadcast a notification",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/notification_broadcast"}]
+    }
+  ]
+}

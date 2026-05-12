@@ -1,0 +1,66 @@
+# =============================================================================
+# .dockerignore — SenatDigit Apps API
+# =============================================================================
+
+# Virtual environment
+.venv/
+venv/
+
+# Git
+.git/
+.github/
+.gitignore
+.git_hooks_logs/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Logs (mounted as volumes instead)
+logs/
+bash/seeds/logs/
+ERRORS/
+
+# Environment files (injected via docker-compose env_file)
+.env
+.env.*
+!.env.example
+
+# Docker files (no need to copy into image)
+docker-compose.yml
+docker/*
+!docker/entrypoint.sh
+Dockerfile
+
+# Docs & misc
+docs/
+*.md
+!README.md
+*.todo
+todo.todo
+z.todo
+z.api.sms.todo
+zz.todo
+
+# Tests (optional — include if you run tests in container)
+# tests/
+# test_*.py
+
+# Secrets (will be mounted as volumes)
+firebase-service-account.json
+
+# Node / misc
+node_modules/
+*.lock

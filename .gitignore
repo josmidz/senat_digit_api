@@ -1,0 +1,24 @@
+__pycache__
+.vscode
+.venv
+venv
+logs
+.env.production
+.env.development
+.env.local
+.env.local.*
+.env.stage
+.env.testing
+.env.senat_seed
+.env.*.bak
+ERRORS
+.env
+.git_hooks_logs/
+.git_hooks_logs/*
+.git_hooks_logs/cleanup.log
+.git_hooks_logs
+bash/logs/
+/bash/seeds/logs/
+bash/seeds/logs/
+firebase-service-account.json
+# docs/

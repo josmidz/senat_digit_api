@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des comptes</title>
+    <style type="text/css">
+      /* Base Styles */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        margin: 10px;
+        line-height: 1.4;
+      }
+
+      p, h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Headings */
+      h1 {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      h2 {
+        font-size: 1.25em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      h4 {
+        font-size: 1em;
+        font-weight: normal;
+        color: #333;
+      }
+
+      /* Paragraphs */
+      p {
+        font-size: 1em;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        text-align: left;
+        font-size: 0.9em;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      /* Flexbox Utilities */
+      .flex {
+        display: flex;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .items-start {
+        align-items: flex-start;
+        text-align: start;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-end {
+        justify-content: flex-end;
+      }
+
+      .justify-start {
+        justify-content: flex-start;
+      }
+
+      .space-x-3 > * + * {
+        margin-left: 0.75em;
+      }
+
+      .space-x-4 > * + * {
+        margin-left: 1em;
+      }
+
+      .space-y-1 > * + * {
+        margin-top: 0.25em;
+      }
+
+      /* Grid Utilities */
+      .grid {
+        display: grid;
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .grid-cols-12 {
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      .col-span-9 {
+        grid-column: span 9;
+      }
+
+      .col-span-3 {
+        grid-column: span 3;
+      }
+
+      .gap-2 {
+        gap: 0.5em;
+      }
+
+      /* Sizing Utilities */
+      .w-20 {
+        width: 4em;
+      }
+      .w-24 {
+        width: 6em;
+      }
+
+      .h-24 {
+        height: 6em;
+      }
+
+      .w-64 {
+        width: 16em;
+      }
+
+      .h-28 {
+        height: 7em;
+      }
+
+      .rounded {
+        border-radius: 0.25em;
+      }
+
+      .border {
+        border: 1px solid #a6a6a7;
+      }
+
+      .border-b {
+        border-bottom: 1px solid #a6a6a7;
+      }
+
+      .border-gray-400 {
+        border-color: #adaeb1;
+      }
+
+      .p-3 {
+        padding: 0.75em;
+      }
+
+      .px-3 {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+      }
+
+      .pb-3 {
+        padding-bottom: 0.75em;
+      }
+
+      .mb-1 {
+        margin-bottom: 0.25em;
+      }
+
+      .mb-5 {
+        margin-bottom: 1.25em;
+      }
+
+      .mt-4 {
+        margin-top: 1em;
+      }
+
+      .mt-5 {
+        margin-top: 1.25em;
+      }
+
+      .mt-11 {
+        margin-top: 2.75em;
+      }
+
+      .mt-16 {
+        margin-top: 4em;
+      }
+
+      .mt-24 {
+        margin-top: 5em;
+      }
+
+      .rounded-lg {
+        border-radius: 0.5em;
+      }
+
+      .bg-light-gray-200 {
+        background-color: #e5e7eb;
+      }
+
+      .text-light-gray-800 {
+        color: #1f2937;
+      }
+
+      .text-light-gray-600 {
+        color: #4b5563;
+      }
+
+      .text-light-blue-500 {
+        color: #3b82f6;
+      }
+
+      .hover\:underline:hover {
+        text-decoration: underline;
+      }
+
+      /* Section Styles */
+      .section {
+        margin-bottom: 1em;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .font-bold {
+        font-weight: bold;
+      }
+      .text-nowrap {
+        text-wrap: nowrap !important;
+      }
+
+      .items-end {
+        align-items: flex-end;
+      }
+
+      .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .flex-1 {
+        flex: 1 1 0%;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-left {
+        text-align: left;
+      }
+
+      .amount {
+        text-align: right;
+      }
+
+      .date {
+        white-space: nowrap;
+      }
+      
+      .highlight {
+        background-color: #f0f8ff;
+      }
+
+      /* Signature container styles */
+      .signature-container {
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .signature-container img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="grid grid-cols-12">
+      <!-- Left Header -->
+      <div class="flex col-span-9 items-start space-x-4">
+        <div class="flex justify-end">
+          <div class="h-24 w-24 rounded flex items-center justify-center">
+             <img class="h-24 w-24 rounded" src="{{logo}}" alt="Logo" />
+          </div>
+        </div>
+        <div class="flex flex-col border-b pb-3 text-left">
+          <h1 class="mb-1 font-bold">{{bank_name}}</h1>
+          <h4 class="font-bold mb-1">{{branch_name}}</h4>
+          <h5 class="font-normal">{{address}}</h5>
+          <!-- <h6 class="font-normal">{{contact_info}}</h6> -->
+        </div>
+      </div>
+      <!-- End Left Header -->
+
+      <!-- QR Code -->
+      <div class="flex justify-end col-span-3">
+        <div class="h-24 w-24 rounded flex items-center justify-center border border-gray-400">
+          <img class="h-24 w-24 rounded" src="{{qr_code}}" alt="QR Code" />
+        </div>
+      </div>
+      <!-- End QR Code -->
+    </div>
+
+    <!-- Main Title -->
+    <div class="mt-11 flex justify-center">
+      <h1 class="border-b pb-3 font-bold">LISTE DES COMPTES</h1>
+    </div>
+    <!-- End Main Title -->
+
+    <!-- Date Information -->
+    <div class="mt-5 flex w-full justify-center mb-5">
+      <div class="flex items-center space-x-3">
+        <p class="font-bold">Période du:</p>
+        <p class="font-normal date">{{start_date}}</p>
+        <p class="font-bold">au:</p>
+        <p class="font-normal date">{{end_date}}</p>
+      </div>
+    </div>
+
+    <!-- Accounts List -->
+    <div class="mt-5 flex w-full justify-start mb-5">
+      <h1 class="font-bold border-b pb-3">DÉTAIL DES COMPTES</h1>
+    </div>
+
+    <div class="mb-5">
+      <table>
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Intitulé du compte</th>
+            <th>Numéro de compte</th>
+            <th>Solde</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for account in accounts %}
+          <tr {% if account.is_highlighted %}class="highlight"{% endif %}>
+            <td>{{loop.index}}</td>
+            <td>{{account.name}}</td>
+            <td>{{account.number}}</td>
+            <td class="amount">{{account.balance}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="font-bold text-right">Nombre total de comptes:</td>
+            <td class="font-bold">{{accounts|length}}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <!-- End Accounts List -->
+
+    <!-- Accounts Summary -->
+    <div class="mt-11 flex w-full justify-start mb-5">
+      <h1 class="font-bold border-b pb-3">STATISTIQUES DES COMPTES</h1>
+    </div>
+
+    <div class="border rounded-lg p-3 mb-5">
+      <div class="grid grid-cols-4 gap-4">
+        <!-- Highest Balance -->
+        <div>
+          <h4 class="font-bold mb-2">Compte avec le solde le plus élevé</h4>
+          <p>Intitulé: {{highest_balance_account.name}}</p>
+          <p>Numéro: {{highest_balance_account.number}}</p>
+          <p>Solde: <span class="amount">{{highest_balance_account.balance}}</span></p>
+        </div>
+        
+        <!-- Lowest Balance -->
+        <div>
+          <h4 class="font-bold mb-2">Compte avec le solde le plus bas</h4>
+          <p>Intitulé: {{lowest_balance_account.name}}</p>
+          <p>Numéro: {{lowest_balance_account.number}}</p>
+          <p>Solde: <span class="amount">{{lowest_balance_account.balance}}</span></p>
+        </div>
+        
+        <!-- Highest Expenses -->
+        <div>
+          <h4 class="font-bold mb-2">Compte avec plus de dépenses</h4>
+          <p>Intitulé: {{highest_expenses_account.name}}</p>
+          <p>Numéro: {{highest_expenses_account.number}}</p>
+          <p>Total dépensé: <span class="amount">{{highest_expenses_account.total_expenses}}</span></p>
+        </div>
+        
+        <!-- Lowest Expenses -->
+        <div>
+          <h4 class="font-bold mb-2">Compte avec moins de dépenses</h4>
+          <p>Intitulé: {{lowest_expenses_account.name}}</p>
+          <p>Numéro: {{lowest_expenses_account.number}}</p>
+          <p>Total dépensé: <span class="amount">{{lowest_expenses_account.total_expenses}}</span></p>
+        </div>
+      </div>
+    </div>
+    <!-- End Accounts Summary -->
+
+    <!-- Global Summary -->
+    <div class="border rounded-lg p-3 mb-5">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h4 class="font-bold mb-2">Soldes globaux</h4>
+          <p>Solde total positif: <span class="amount">{{total_positive_balance}}</span></p>
+          <p>Solde total négatif: <span class="amount">{{total_negative_balance}}</span></p>
+          <p>Solde global net: <span class="amount">{{net_balance}}</span></p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-2">Mouvements globaux</h4>
+          <p>Total dépenses: <span class="amount">{{total_expenses}}</span></p>
+          <p>Total recettes: <span class="amount">{{total_income}}</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signature Area -->
+    <div class="mt-16 grid grid-cols-2 gap-2">
+      <!-- Left -->
+      <div class="flex flex-col">
+        <!-- Empty space for balance -->
+      </div>
+      <!-- End Left -->
+
+      <!-- Right -->
+      <div class="flex flex-col items-end">
+        {% if user_signature and user_signature.signature_url %}
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <h1 class="font-bold">Responsable des comptes</h1>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <p class="text-right">{{user_signature.user_name}}</p>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <p class="text-right">{{user_signature.user_title}}</p>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <div class="mt-5">
+            <div class="border w-64 h-28 justify-center items-center flex rounded signature-container" style="padding: 4px;">
+              <img src="{{user_signature.signature_url}}" alt="Signature" />
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <p class="text-right text-light-gray-600" style="font-size: 0.8em; margin-top: 0.5em;">{{user_signature.signature_date}}</p>
+        </div>
+        {% else %}
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <h1 class="font-bold">Responsable des comptes</h1>
+        </div>
+        <div class="flex items-center">
+          <div class="flex-1"></div>
+          <div class="mt-5">
+            <div class="border w-64 h-28 justify-center items-center flex rounded">
+              Signature
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <!-- End Right -->
+    </div>
+    <!-- End Signature Area -->
+
+    <!-- Footer -->
+    <div class="mt-8 text-center text-light-gray-600">
+      <p>Document généré le {{generation_date}} - Ce document fait foi et doit être conservé</p>
+    </div>
+  </body>
+</html>

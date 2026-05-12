@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "module": "vote",
+    "purpose": "Mobile bottom-nav 'Votes' tab + sub-screens (live vote, proxy ballot, results, history)",
+    "sitemap_source": "_planning/01_sitemap_v2.md — Module 5 (Vote)"
+  },
+  "apps": [
+    {
+      "flag": "senat_digit_mobile_votes",
+      "name": "Votes",
+      "path": "/vote/live",
+      "path_guard": "senat_digit_mobile_votes_page",
+      "order_by": 4,
+      "is_activated": true,
+      "restricted_api_consumer_list": [
+        {"flag": "senat_digit_mobile", "is_link_activated": true}
+      ],
+      "sub_menus": [
+        {
+          "flag": "senat_digit_mobile_votes_live",
+          "name": "Vote en direct",
+          "path": "/vote/live",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_votes_proxy",
+          "name": "Vote par procuration",
+          "path": "/vote/proxy",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_votes_result",
+          "name": "Résultats",
+          "path": "/vote/result",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_votes_history_session",
+          "name": "Historique par séance",
+          "path": "/vote/history/session",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_votes_history_text",
+          "name": "Historique par texte",
+          "path": "/vote/history/text",
+          "is_activated": true
+        }
+      ]
+    }
+  ]
+}

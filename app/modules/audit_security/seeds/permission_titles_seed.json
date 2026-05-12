@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "module": "audit_security",
+    "feature_slice": "MVP §3.5 step 9 (last MVP module — tamper-evident audit chain)",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Audit & Logs section",
+    "pptx_anchors": "Slide 19 (sécurisation, archivage, RGPD) + memory: senat_pptx_requirements §5"
+  },
+  "permission_titles": [
+    {
+      "key": "audit.read_security",
+      "title_fr": "Lire les logs sécurité",
+      "title_en": "Read security audit logs",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/audit_event_security"},
+        {"method": "GET", "path": "/api/v1/list/audit_event_session"}
+      ]
+    },
+    {
+      "key": "audit.read_vote",
+      "title_fr": "Lire les logs vote",
+      "title_en": "Read vote audit logs",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/audit_event_vote"}]
+    },
+    {
+      "key": "audit.read_document_access",
+      "title_fr": "Lire les logs accès document",
+      "title_en": "Read document access audit logs",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/audit_event_document"}]
+    },
+    {
+      "key": "audit.verify_chain",
+      "title_fr": "Vérifier la chaîne tamper-evidence",
+      "title_en": "Verify the tamper-evidence chain",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/verify/audit_chain"}]
+    },
+    {
+      "key": "audit.export_chain",
+      "title_fr": "Exporter la chaîne signée",
+      "title_en": "Export the signed chain",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/export/audit_chain"}]
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saisie des dépenses </title>
+    <style type="text/css">
+      /* Modern Professional Styles */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 11px;
+        margin: 0;
+        padding: 12px;
+        line-height: 1.3;
+        color: #1a1a1a;
+        background: #ffffff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      p, h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Compact Typography Hierarchy */
+      h1 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.025em;
+        margin: 0.25rem 0;
+      }
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1e293b;
+        letter-spacing: -0.025em;
+        margin: 0.2rem 0;
+      }
+
+      h3 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #334155;
+        margin: 0.2rem 0;
+      }
+
+      h4 {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #475569;
+        margin: 0.15rem 0;
+      }
+
+      h5 {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #64748b;
+        margin: 0.1rem 0;
+      }
+
+      h6 {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #64748b;
+        margin: 0.1rem 0;
+      }
+
+      p {
+        font-size: 0.8rem;
+        color: #374151;
+        font-weight: 400;
+        margin: 0.1rem 0;
+      }
+
+      /* Compact Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.5rem 0;
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      th {
+        background: linear-gradient(135deg, #4d6cf9 0%, hsl(210, 93%, 57%) 100%);
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+        border: none;
+      }
+
+      td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        color: #374151;
+        border-bottom: 1px solid #f3f4f6;
+        border-left: none;
+        border-right: none;
+        vertical-align: top;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:hover {
+        background-color: #f8fafc;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Flexbox Utilities */
+      .flex {
+        display: flex;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .items-center {
+        align-items: center;
+      }
+
+      .items-start {
+        align-items: flex-start;
+        text-align: start;
+      }
+
+      .justify-center {
+        justify-content: center;
+      }
+
+      .justify-end {
+        justify-content: flex-end;
+      }
+
+      .justify-start {
+        justify-content: flex-start;
+      }
+
+      .space-x-3 > * + * {
+        margin-left: 0.75em; /* Adjusted spacing */
+      }
+
+      .space-x-4 > * + * {
+        margin-left: 1em; /* Adjusted spacing for space-x-4 */
+      }
+
+      .space-y-1 > * + * {
+        margin-top: 0.25em; /* Adjusted spacing */
+      }
+
+      /* Grid Utilities */
+      .grid {
+        display: grid;
+      }
+
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-cols-12 {
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      .col-span-10 {
+        grid-column: span 10;
+      }
+      .col-span-9 {
+        grid-column: span 9;
+      }
+
+      .col-span-3 {
+        grid-column: span 3;
+      }
+      .col-span-2 {
+        grid-column: span 2;
+      }
+
+      .gap-2 {
+        gap: 0.5em; /* Adjusted spacing */
+      }
+
+      /* Sizing Utilities */
+      .w-20 {
+        width: 4em; /* Adjusted width */
+      }
+      .w-24 {
+        width: 6em; /* Adjusted width */
+      }
+
+      .h-24 {
+        height: 6em; /* Adjusted height */
+      }
+
+      .w-64 {
+        width: 16em; /* Adjusted width */
+      }
+      .w-56 {
+        width: 14em; /* Adjusted width */
+      }
+      .w-52 {
+        width: 13em; /* Adjusted width */
+      }
+
+      .w-48 {
+        width: 12em; /* Adjusted width */
+      }
+
+      .w-44 {
+        width: 11em; /* Adjusted width */
+      }
+      .w-40 {
+        width: 10em; /* Adjusted width */
+      }
+
+      .w-36 {
+        width: 9em; /* Adjusted width */
+      }
+      .w-32 {
+        width: 8em; /* Adjusted width */
+      }
+
+      .h-28 {
+        height: 7em; /* Adjusted height */
+      }
+
+      /* Compact Card & Layout Styles */
+      .card {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f1f5f9;
+      }
+
+      .header-card {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .h-20 {
+        height: 5em;
+      }
+      .w-20 {
+        width: 5em;
+      }
+
+      .info-section {
+        background: #f8fafc;
+        border-radius: 6px;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        border-left: 3px solid #3b82f6;
+      }
+
+      .beneficiary-section {
+        background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%);
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.75rem 0;
+        border: 1px solid #e9d5ff;
+      }
+
+      .beneficiary-field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.75rem;
+      }
+
+      .beneficiary-field:last-child {
+        border-bottom: none;
+      }
+
+      .beneficiary-label {
+        font-weight: 600;
+        color: #374151;
+        min-width: 120px;
+        font-size: 0.75rem;
+      }
+
+      .beneficiary-value {
+        color: #1f2937;
+        font-weight: 500;
+        text-align: right;
+        font-size: 0.75rem;
+      }
+
+      .signature-area {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-radius: 6px;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #bae6fd;
+      }
+
+      .signature-box {
+        background: #ffffff;
+        border: 1px solid #94a3b8;
+        border-radius: 4px;
+        padding: 0.5rem;
+        text-align: center;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .signature-box:hover {
+        border-color: #3b82f6;
+        background: #f8fafc;
+      }
+
+      .flex-row {
+        flex-direction: row;
+      }
+
+      .text-light-gray-800 {
+        color: #1f2937;
+      }
+
+      .text-light-gray-600 {
+        color: #4b5563;
+      }
+
+      .text-light-blue-500 {
+        color: #3b82f6;
+      }
+
+      .hover\:underline:hover {
+        text-decoration: underline;
+      }
+
+      /* Section Styles */
+      .section {
+        margin-bottom: 1em; /* Adjusted margin */
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .font-bold {
+        font-weight: bold;
+      }
+      .text-nowrap {
+        text-wrap: nowrap !important;
+      }
+
+      .items-end {
+        align-items: flex-end;
+      }
+
+      .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(0.5rem /* 8px */ * var(--tw-space-x-reverse));
+        margin-left: calc(
+          0.5rem /* 8px */ * calc(1 - var(--tw-space-x-reverse))
+        );
+      }
+      .flex-1 {
+        flex: 1 1 0%;
+      }
+
+      /* Additional Professional Styles */
+      .text-slate-800 { color: #1e293b; }
+      .text-slate-600 { color: #475569; }
+      .text-slate-500 { color: #64748b; }
+      .text-slate-400 { color: #94a3b8; }
+
+      .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+      .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+      .from-blue-600 { --tw-gradient-from: #2563eb; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0)); }
+      .to-purple-600 { --tw-gradient-to: #9333ea; }
+      .from-blue-50 { --tw-gradient-from: #eff6ff; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 246, 255, 0)); }
+      .to-indigo-100 { --tw-gradient-to: #e0e7ff; }
+      .to-indigo-50 { --tw-gradient-to: #eef2ff; }
+
+      .bg-clip-text { -webkit-background-clip: text; background-clip: text; }
+      .text-transparent { color: transparent; }
+
+      .border-light-blue-200 { border-color: #bfdbfe; }
+      .border-blue-300 { border-color: #93c5fd; }
+      .border-light-blue-500 { border-color: #3b82f6; }
+      .border-green-500 { border-color: #22c55e; }
+
+      .space-y-4 > * + * { margin-top: 1rem; }
+      .space-y-6 > * + * { margin-top: 1.5rem; }
+
+      .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+
+      .max-w-sm { max-width: 24rem; }
+
+      /* Responsive Design */
+      @media (min-width: 768px) {
+        .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
+      /* Print Styles */
+      @media print {
+        body { font-size: 12px; }
+        .signature-area { page-break-inside: avoid; }
+        .card { page-break-inside: avoid; }
+        .beneficiary-section { page-break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Professional Header -->
+    <div class="header-card">
+      <div class="grid grid-cols-12">
+        <!-- Left Header -->
+        <div class="flex col-span-10 items-start space-x-4">
+          <div class="flex justify-center">
+            <div class="h-20 w-20 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 border border-light-blue-200">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg
+              id="Layer_2"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 1600 1200"
+            >
+              <g id="Layer_1-2" data-name="Layer 1">
+                <image
+                  width="1600"
+                  height="1200"
+                  xlink:href="data:image/png;base64,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eoV6BahXqFeAeoV6BahX6pV6pV6BeqVeqVfqFaBeoV4B6hXqFaBeoV4B6pV6pV6pV6BeqVfqlXoFqFeoV4B6hXoFqFeoV4B6pV6pV+oVqFfqlXqlXgHqFeoVoF6hXgHqFeoVoF6pV+qVegXqlXqlXqlXgHqFegWoV6hXgHqFegWoV+qVeqVegXqlXqlX6hWgXqFeAeoV6hWgXqFeAeqVeqVeqVegXqlX6pV6BahXqFeAeoV6BahXqFeAeqVeqVfqFahX6pV6pV4B6hXqFaBeoV4B6hXqFaBeqVfqlXoF6pV6pV6pV4B6hXoFqFeoV4B6hXoFqFfqlXqlXoF6pV6pV+oVoF6hXgHqFeoVoF6hXgHqlXqlXqlXoF6pV+qVegWoV6hXgHqFegWoV6hXgHqlXqlX6hWoV+qVeqVeAeoV6hWgXqFeAeoV6hWgXqlX6pV6BeqVeqVeqVeAeoV6BahXqFeAeoV6BahX6pV6pV6BeqVeqVfqFaBeoV4B6hXqFaBeoV4B6pV6pV6pV6BeqVfqlXoFqFeoV4B6hXoFqFeoV4B6pV6pV+oVqFfqlXqlXgHqFeoVoF6hXgHqFeoVoF6pV+qVegXqlXqlXqlXgHqFegWoV6hXgHqFegWoV+qVeqVegXqlXqlX6hWgXqFeAeoV6hWgXqFeAeqVeqVeqVegXqlX6pV6BahXqFeAeoV6BahXqFeAeqVeqVf+boF6pV6pV+oVoF6hXgHqFeoVoF6hXgHqlXqlXgHqlXqlXqlXgHqlXqlXgHqFegWoV6hXgHqlXqlXgHqlXqlX6hWgXqlX6hWgXqFeAeoV6hWgXqlX6hWgXqlX6pV6BahX6pV6BahXqFeAeoV6BahX6pV6BahX6pV6pV4B6pV6pV4B6hXqFaBeoV4B6pV6pV4B6pV6pV6pV4B6pV6pV4B6hXoFqFeoV4B6pV6pV4B6pV6pV+oVoF6pV+oVoF6hXgHqFeoVoF6pV+oVoF6pV+qVegWoV+qVegWoV6hXgHqFegWoV+qVegWoV+qVeqVeAeqVeqVeAeoV6hWgXqFeAeqVeqVeAeqVeqVeqVeAeqVeqVeAeoV6BahXqFeAeqVeqVeAeqVeqVfqFaBeqVfqFaBeoV4B6hXqFaBeqVfqFaBeqVfqlXoFqFfqlXoFqFeoV4B6hXoFqFd+s9UrQL1Sr9Qr9QpQr9Qr9QpQr1CvAPUK9QpQr1CvAPVKvVKv1CtQr9Qr9Uq9AtQr1CtAvUK9AtQr1CtAvVKv1Cv1CtQr9Uq9Uq8A9Qr1ClCvUK8A9Qr1ClCv1Cv1Sr0C9Uq9Uq/UK0C9Qr0C1CvUK0C9Qr0C1Cv1Sr1Sr0C9Uq/UK/UKUK9QrwD1CvUKUK9QrwD1Sr1Sr9QrUK/UK/VKvQLUK9QrQL1CvQLUK9QrQL1Sr9Qr9QrUK/VKvVKvAPUK9QpQr1CvAPUK9QpQr9Qr9Uq9AvVKvVKv1CtAvUK9AtQr1CtAvUK9AtQr9Uq9Uq9AvVKv1Cv1ClCvUK8A9Qr1ClCvUK8A9Uq9Uq/UK1Cv1Cv1Sr0C1CvUK0C9Qr0C1CvUK0C9Uq/UK/UK1Cv1Sr1SrwD1CvUKUK9QrwD1CvUKUK/UK/VKvQL1Sr1Sr9QrQL1CvQLUK9QrQL1CvQLUK/VKvVKvQL1Sr9Qr9QpQr1CvAPUK9QpQr1CvAPVKvVKv1CtQr9Qr9Uq9AtQr1CtAvUK9AtQr1CtAvVKv1Cv1CtQr9Uq9Uq8A9Qr1ClCvUK8A9Qr1ClCv1Cv1Sr0C9Uq9Uq/UK0C9Qr0C1CvUK0C9Qr0C1Cv1Sr1Sr0C9Uq/UK/UKUK9QrwD1CvUKUK9QrwD1Sr1Sr9QrUK/UK/VKvQLUK9QrQL1CvQLUK9QrQL1Sr9Qr9QrUK/VKvVKvAPUK9QpQr1CvAPUK9QpQr9Qr9Uq9AvVKvVKv1CtAvUK9AtQr1CtAvUK9AtQr9Uq9Uq9AvVKv1Cv1ClCvUK8A9Qr1ClCvUK8A9Uq9Uq/UK1Cv1Cv1Sr0C1CvUK0C9Qr0C1CvUK0C9Uq/UK/UK1Cv1Sr1SrwD1CvUKUK9QrwD1CvUKUK/UK/VKvQL1Sr1Sr9QrQL1CvQLUK9QrQL1CvQLUK/VKvVKvQL1Sr9Qr9QpQr1CvAPUK9QpQr1CvAPVKvVKv1CtQr9Qr9Uq9AtQr1CtAvUK9AtQr1CtAvVKv1Cv1CtQr9Uq9Uq8A9Qr1ClCvUK8A9Qr1ClCv1Cv1ClCv1Cv1Sr0C1CvUK0C9Qr0C1CvUK0C9Uq/UK0C9Uq/UK/UKUK/UK/UKUK9QrwD1CvUKUK/UK/UKUK/UK/VKvQLUK/VKvQLUK9QrQL1CvQLUK/VKvQLUK/VKvVKvAPVKvVKvAPUK9QpQr1CvAPVKvVKvAPVKvVKv1CtAvVKv1CtAvUK9AtQr1CtA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"
+                />
+              </g>
+            </svg>
+          </div>
+          </div>
+          <div class="flex flex-col justify-start text-left ml-4 border w-full">
+            <h2 class="mb-2 text-slate-800">{{republic if republic else 'République Démocratique du Congo'}}</h2>
+            <h4 class="mb-1 text-slate-600">{{province if province else 'Province du Sud-Kivu'}}</h4>
+            <h5 class="text-slate-500">{{ministere if ministere else 'Ministère des Finances'}}</h5>
+            <h6 class="text-slate-400 mt-1">{{expense_chain if expense_chain else 'Chaîne de dépenses'}}</h6>
+          </div>
+        </div>
+        <!-- End Left Header -->
+
+        <!-- QR Code -->
+        <div class="flex justify-end col-span-2">
+          <div class="bg-light-white rounded-xl p-3 shadow-lg border border-light-gray-200">
+            <img class="h-20 w-20 rounded-lg" src="{{qr_code}}" alt="QR Code" />
+          </div>
+        </div>
+        <!-- End QR Code -->
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <div class="text-center" style="margin: 0.5rem 0;">
+      <div class="inline-block">
+        <h1 style="font-size: 1.2rem; font-weight: 700; background: linear-gradient(to right, #2563eb, #9333ea); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0.25rem 0;">
+          {{electronic_bde if electronic_bde else 'BON DE DÉPENSE ÉLECTRONIQUE'}}
+        </h1>
+        <div style="height: 2px; background: linear-gradient(to right, #2563eb, #9333ea); border-radius: 2px;"></div>
+      </div>
+    </div>
+    <!-- End Main Title -->
+
+    <!-- Sub Title -->
+    {% if cases and cases.display_title and cases.display_value %}
+    <div class="info-section">
+      <h3 class="text-lg font-semibold text-light-gray-800">{{cases.display_title}} {{cases.display_value}}</h3>
+    </div>
+    {% endif %}
+    <!-- End Sub Title -->
+
+    <!-- Information Card -->
+    <div class="card">
+      <h3 style="font-size: 0.9rem; font-weight: 600; color: #374151; margin: 0.3rem 0; padding-bottom: 0.3rem; border-bottom: 1px solid #e5e7eb;">Informations de la Dépense</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 0.75rem;">
+        <!-- Left Column -->
+        <div>
+          {% if submiting_dates and submiting_dates.display_title and submiting_dates.display_value %}
+          <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #3b82f6; margin: 0.25rem 0;">
+            <div class="flex justify-between items-center">
+              <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">{{submiting_dates.display_title}}</span>
+              <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{submiting_dates.display_value}}</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          {% if opening_dates and opening_dates.display_title and opening_dates.display_value %}
+          <div style="background: #f9fafb; border-radius: 4px; padding: 0.5rem; border-left: 3px solid #22c55e; margin: 0.25rem 0;">
+            <div class="flex justify-between items-center">
+              <span style="font-size: 0.75rem; font-weight: 500; color: #6b7280;">{{opening_dates.display_title}}</span>
+              <span style="font-size: 0.75rem; font-weight: 600; color: #111827;">{{opening_dates.display_value}}</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      
+    </div>
+    <!-- End Card -->
+
+    <!-- Beneficiary Section -->
+    {% if beneficiary %}
+    <div style="margin-top: 20px;" class="beneficiary-section">
+      <h2 class="border-b pb-3 font-bold">Informations du Bénéficiaire</h2>
+
+      {% if beneficiary.type_lbl %}
+      <div class="beneficiary-type">
+        Type de bénéficiaire: {{beneficiary.type_lbl}}
+      </div>
+      {% endif %}
+
+      <!-- Personne Physique -->
+      {% if beneficiary.type == 'physical_beneficiary' %}
+      <div id="physical-beneficiary" class="beneficiary-details">
+        {% if beneficiary.lastname %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Nom:</span>
+          <span class="beneficiary-value">{{beneficiary.lastname}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.firstname %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Prénom:</span>
+          <span class="beneficiary-value">{{beneficiary.firstname}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.id_number %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Numéro d'identification:</span>
+          <span class="beneficiary-value">{{beneficiary.id_number}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.address %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Adresse:</span>
+          <span class="beneficiary-value">{{beneficiary.address}}</span>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Personne Morale -->
+      {% if beneficiary.type == 'legal_beneficiary' %}
+      <div id="moral-beneficiary" class="beneficiary-details">
+        {% if beneficiary.company_name %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Nom de l'entreprise:</span>
+          <span class="beneficiary-value">{{beneficiary.company_name}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.id_number %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Numéro d'identification:</span>
+          <span class="beneficiary-value">{{beneficiary.id_number}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.email %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">E-mail:</span>
+          <span class="beneficiary-value">{{beneficiary.email}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.phone_number %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Tél:</span>
+          <span class="beneficiary-value">{{beneficiary.phone_number}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.address %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Adresse:</span>
+          <span class="beneficiary-value">{{beneficiary.address}}</span>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <!-- Agent -->
+      {% if beneficiary.type == 'agent_beneficiary' %}
+      <div id="agent-beneficiary" class="beneficiary-details">
+        {% if beneficiary.lastname %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Nom:</span>
+          <span class="beneficiary-value">{{beneficiary.lastname}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.firstname %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Prénom:</span>
+          <span class="beneficiary-value">{{beneficiary.firstname}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.id_number %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Matricule:</span>
+          <span class="beneficiary-value">{{beneficiary.id_number}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.position %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Poste:</span>
+          <span class="beneficiary-value">{{beneficiary.position}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.service %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Service:</span>
+          <span class="beneficiary-value">{{beneficiary.service}}</span>
+        </div>
+        {% endif %}
+        {% if beneficiary.department %}
+        <div class="beneficiary-field">
+          <span class="beneficiary-label">Direction:</span>
+          <span class="beneficiary-value">{{beneficiary.department}}</span>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+    <!-- End Beneficiary Section -->
+
+    <!-- Section -->
+    {% if affirmation %}
+    <div class="section mt-4">
+      <p>{{affirmation}}</p>
+    </div>
+    {% endif %}
+
+    <!-- Sub Title -->
+    {% if descriptions %}
+    <div class="mt-11 flex w-full justify-start mb-5">
+      <h1 class="font-bold border-b pb-3">{{descriptions}}</h1>
+    </div>
+    {% endif %}
+    <!-- End Sub Title -->
+
+    <!-- Description Table -->
+    <div class="mb-5">
+      <table>
+        <thead>
+          <tr>
+            <!-- Dynamically generate headers from the first item -->
+            {% if expense_amounts %} {% for key, value in expense_amounts[0].items() %}
+            <th>{{ value.display_title }}</th>
+            {% endfor %} {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in expense_amounts %}
+          <tr>
+            <td>{{ item.expended_amount.display_value }}</td>
+            <td>{{ item.expense_reason.display_value }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- End Description Table -->
+
+    <!-- Observation -->
+    <!-- <div class="flex flex-row space-x-2 mt-4">
+      <div class="font-bold text-nowrap">{{observations.display_title}}</div>
+      <div style="margin-left: 40px" class="px-3">
+        {{observations.display_value}}
+      </div>
+    </div> -->
+
+    <!-- Ultra Compact Signature Area -->
+    <div class="signature-area">
+      <div class="flex justify-end" style="margin: 0.25rem 0;">
+        <div class="text-right" style="max-width: 180px;">
+          {% if credit_manager %}
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin: 0;">{{credit_manager.display_title if credit_manager.display_title else 'Responsable'}}</h4>
+          <p style="font-size: 0.65rem; color: #6b7280; margin: 0;">{{credit_manager.display_value if credit_manager.display_value else 'Nom du responsable'}}</p>
+          {% else %}
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: #374151; margin: 0;">Responsable</h4>
+          {% endif %}
+
+          {% if user_signature and user_signature.signature_url %}
+          <div class="signature-box" style="background: #ffffff; border: 1px solid #93c5fd; margin: 0.25rem 0; width: 120px; height: 40px;">
+            <img src="{{user_signature.signature_url}}" alt="Signature" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+          </div>
+          <p style="font-size: 0.6rem; color: #6b7280; margin: 0;">{{user_signature.signature_date}}</p>
+          {% else %}
+          <div class="signature-box" style="margin: 0.25rem 0; width: 120px; height: 40px;">
+            <span style="color: #9ca3af; font-size: 0.65rem;">Signature</span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Minimal Footer -->
+      <div style="margin-top: 0.5rem; padding-top: 0.25rem; border-top: 1px solid #e5e7eb; text-align: center;">
+        <p style="font-size: 0.6rem; color: #9ca3af;">Document généré électroniquement</p>
+      </div>
+    </div>
+    <!-- End Signature Area -->
+  </body>
+</html>

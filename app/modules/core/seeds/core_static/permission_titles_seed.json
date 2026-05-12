@@ -1,0 +1,103 @@
+{
+  "_meta": {
+    "module": "core_static",
+    "feature_slice": "shared static-read endpoints granted to every authenticated role",
+    "scope": "Endpoints in static_endpoint.py that drive the bottom-nav, menus, own user-config, and own notification inbox. NOT the admin-only static URLs (RBAC config, global validators, sudo permissions, saas-users) — those go into the future legacy_admin_web batch.",
+    "rationale": "Without seeding /api/v1/static/data/get-applications under RBAC, every authenticated mobile user gets a 403 from PermissionCheckMiddleware on app launch and the bottom-nav silently fails. These reads are non-sensitive (each one is scoped to the caller's own context server-side) so they're safe to grant to all roles."
+  },
+  "permission_titles": [
+    {
+      "key": "core_static.get_applications",
+      "title_fr": "Charger la liste des applications de l'utilisateur",
+      "title_en": "Fetch user's allowed applications",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-applications"}
+      ]
+    },
+    {
+      "key": "core_static.get_menus",
+      "title_fr": "Charger les menus",
+      "title_en": "Fetch menus",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-menus"}
+      ]
+    },
+    {
+      "key": "core_static.get_application_user_submenus",
+      "title_fr": "Charger les sous-menus d'une application",
+      "title_en": "Fetch application sub-menus for the user",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-application-user-submenus"}
+      ]
+    },
+    {
+      "key": "core_static.get_menu_user_sub_menus",
+      "title_fr": "Charger les sous-menus d'un menu",
+      "title_en": "Fetch menu sub-menus for the user",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-menu-user-sub-menus"}
+      ]
+    },
+    {
+      "key": "core_static.get_user_config",
+      "title_fr": "Voir ma configuration utilisateur",
+      "title_en": "Read own user config",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-user-config"}
+      ]
+    },
+    {
+      "key": "core_static.get_entity_config",
+      "title_fr": "Charger la configuration de l'entité",
+      "title_en": "Fetch entity config",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-entity-config"}
+      ]
+    },
+    {
+      "key": "core_static.get_notifications",
+      "title_fr": "Voir les notifications (inbox legacy)",
+      "title_en": "Fetch notifications (legacy inbox)",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/data/get-notifications"}
+      ]
+    },
+    {
+      "key": "core_static.notification_mark_read",
+      "title_fr": "Marquer une notification comme lue (inbox legacy)",
+      "title_en": "Mark notification read (legacy inbox)",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/static/data/mark-notification-read"},
+        {"method": "POST", "path": "/api/v1/static/data/mark-all-notifications-read"}
+      ]
+    },
+    {
+      "key": "core_static.view_file",
+      "title_fr": "Lire un fichier (signed URL)",
+      "title_en": "View file (signed URL)",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/files/view-file"},
+        {"method": "GET", "path": "/api/v1/static/files/viewfiles"}
+      ]
+    },
+    {
+      "key": "core_static.download_file",
+      "title_fr": "Télécharger un fichier",
+      "title_en": "Download a file",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/static/files/download-file"},
+        {"method": "GET", "path": "/api/v1/static/files/local-download-file"}
+      ]
+    }
+  ]
+}

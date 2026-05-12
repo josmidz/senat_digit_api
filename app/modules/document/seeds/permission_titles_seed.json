@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "module": "document",
+    "feature_slice": "MVP §3.5 step 4",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Documents section"
+  },
+  "permission_titles": [
+    {
+      "key": "document.list",
+      "title_fr": "Lister les textes & résolutions",
+      "title_en": "List documents",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/document"}]
+    },
+    {
+      "key": "document.detail",
+      "title_fr": "Voir le détail d'un texte",
+      "title_en": "View document detail",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/detail/document"}]
+    },
+    {
+      "key": "document.read_blob",
+      "title_fr": "Lire le PDF",
+      "title_en": "Read document PDF",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/signed/document_blob"}]
+    },
+    {
+      "key": "document.list_amendments",
+      "title_fr": "Lister les amendements",
+      "title_en": "List amendments",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/document_amendment"}]
+    },
+    {
+      "key": "document.list_versions",
+      "title_fr": "Lister les versions",
+      "title_en": "List versions",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/document_version"}]
+    },
+    {
+      "key": "document.list_by_agenda",
+      "title_fr": "Lister par point ODJ",
+      "title_en": "List documents by agenda item",
+      "bucket": "standalone",
+      "endpoints": [{"method": "GET", "path": "/api/v1/list/document_by_agenda"}]
+    },
+    {
+      "key": "document.create",
+      "title_fr": "Créer un texte",
+      "title_en": "Create document",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/document"}]
+    },
+    {
+      "key": "document.patch",
+      "title_fr": "Modifier un texte",
+      "title_en": "Update document",
+      "bucket": "standalone",
+      "endpoints": [{"method": "PATCH", "path": "/api/v1/patch/document"}]
+    },
+    {
+      "key": "document.delete",
+      "title_fr": "Supprimer un texte",
+      "title_en": "Delete document",
+      "bucket": "standalone",
+      "endpoints": [{"method": "DELETE", "path": "/api/v1/delete/document"}]
+    },
+    {
+      "key": "document.publish",
+      "title_fr": "Publier un texte",
+      "title_en": "Publish document",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/publish/document"}]
+    },
+    {
+      "key": "document.create_version",
+      "title_fr": "Créer une version",
+      "title_en": "Create version",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/document_version"}]
+    },
+    {
+      "key": "document.amend_create",
+      "title_fr": "Proposer un amendement",
+      "title_en": "Propose amendment",
+      "bucket": "standalone",
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/document_amendment"}]
+    },
+    {
+      "key": "document.amend_validate",
+      "title_fr": "Valider un amendement",
+      "title_en": "Validate amendment",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/validate/document_amendment"}]
+    }
+  ]
+}

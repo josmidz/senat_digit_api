@@ -1,0 +1,158 @@
+{
+  "_meta": {
+    "module": "auth_device",
+    "feature_slice": "MVP §3.5 step 1",
+    "permission_key_format": "<resource>.<action>  (self-scoped variants suffix _self)",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Auth & Profile section"
+  },
+  "permission_titles": [
+    {
+      "key": "auth.login",
+      "title_fr": "Se connecter",
+      "title_en": "Sign in",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/login/auth"}
+      ]
+    },
+    {
+      "key": "auth.refresh",
+      "title_fr": "Rafraîchir le jeton d'accès",
+      "title_en": "Refresh access token",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/refresh/auth"}
+      ]
+    },
+    {
+      "key": "auth.password_change",
+      "title_fr": "Changer son mot de passe",
+      "title_en": "Change password",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "PATCH", "path": "/api/v1/patch/password"}
+      ]
+    },
+    {
+      "key": "auth.device_verify",
+      "title_fr": "Vérifier l'appareil",
+      "title_en": "Verify device",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/verify/device"}
+      ]
+    },
+    {
+      "key": "profile.read_self",
+      "title_fr": "Voir mon profil",
+      "title_en": "Read my profile",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/detail/profile_self"}
+      ],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "profile.read_roles",
+      "title_fr": "Voir mes rôles",
+      "title_en": "Read my roles",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/role_self"}
+      ],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "profile.read_history",
+      "title_fr": "Voir mon historique de participation",
+      "title_en": "Read my participation history",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/participation_history_self"}
+      ],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "proxy.read_self",
+      "title_fr": "Voir mes pouvoirs reçus",
+      "title_en": "Read my received proxies",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/proxy_self"}
+      ],
+      "_status": "reserved_v1.1"
+    },
+    {
+      "key": "auth.register_fcm_token",
+      "title_fr": "Enregistrer le jeton FCM de mon appareil",
+      "title_en": "Register my device's FCM token",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/patch/sys_user_device_fcm_token"}
+      ]
+    },
+    {
+      "key": "auth.pin_status",
+      "title_fr": "Lire l'état de mon PIN",
+      "title_en": "Read my PIN status",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/auth/pin/status"}
+      ]
+    },
+    {
+      "key": "auth.pin_set",
+      "title_fr": "Définir mon PIN",
+      "title_en": "Set my PIN",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/auth/pin/set"}
+      ]
+    },
+    {
+      "key": "auth.pin_change",
+      "title_fr": "Changer mon PIN",
+      "title_en": "Change my PIN",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/auth/pin/change"}
+      ]
+    },
+    {
+      "key": "auth.pin_verify",
+      "title_fr": "Vérifier mon PIN",
+      "title_en": "Verify my PIN",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/auth/pin/verify"}
+      ]
+    },
+    {
+      "key": "auth.security_questions_list",
+      "title_fr": "Voir le catalogue des questions de sécurité",
+      "title_en": "Read security-question catalog",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/auth/security-questions"}
+      ]
+    },
+    {
+      "key": "auth.security_questions_read_mine",
+      "title_fr": "Voir mes questions de sécurité",
+      "title_en": "Read my security questions",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/auth/security-questions/mine"}
+      ]
+    },
+    {
+      "key": "auth.security_questions_set",
+      "title_fr": "Configurer mes questions de sécurité",
+      "title_en": "Set my security questions",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/auth/security-questions/set"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "module": "parole",
+    "feature_slice": "MVP §3.5 step 7 (promoted from baseline per PPTX slide 5)",
+    "matrix_source": "_planning/02_rbac_matrix_v2.md — Parole section"
+  },
+  "permission_titles": [
+    {
+      "key": "parole.request_self",
+      "title_fr": "Demander la parole",
+      "title_en": "Request to speak",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [{"method": "POST", "path": "/api/v1/create/parole_request"}]
+    },
+    {
+      "key": "parole.read_queue",
+      "title_fr": "Voir la file de parole",
+      "title_en": "Read the speaking queue",
+      "bucket": "standalone",
+      "endpoints": [
+        {"method": "GET", "path": "/api/v1/list/parole_queue"},
+        {"method": "GET", "path": "/api/v1/detail/parole_request"}
+      ]
+    },
+    {
+      "key": "parole.dispatch",
+      "title_fr": "Accorder/refuser la parole",
+      "title_en": "Dispatch speaking requests",
+      "bucket": "custom",
+      "hard_code_flag": true,
+      "endpoints": [
+        {"method": "POST", "path": "/api/v1/dispatch/parole_request"},
+        {"method": "POST", "path": "/api/v1/terminate/parole_request"}
+      ]
+    }
+  ]
+}

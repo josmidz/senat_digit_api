@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "module": "agenda",
+    "purpose": "Mobile bottom-nav 'Ordre du jour' surface (under Séance tab) + admin web ODJ-construction screens",
+    "sitemap_source": "_planning/01_sitemap_v2.md — Module 3 (Ordre du Jour)"
+  },
+  "apps": [
+    {
+      "flag": "senat_digit_mobile_agenda",
+      "name": "Ordre du jour",
+      "path": "/agenda",
+      "path_guard": "senat_digit_mobile_agenda_page",
+      "order_by": 2,
+      "is_activated": true,
+      "restricted_api_consumer_list": [
+        {"flag": "senat_digit_mobile", "is_link_activated": true}
+      ],
+      "sub_menus": [
+        {
+          "flag": "senat_digit_mobile_agenda_list",
+          "name": "Liste des points",
+          "path": "/agenda",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_agenda_detail",
+          "name": "Détail point",
+          "path": "/agenda/:id",
+          "is_activated": true
+        },
+        {
+          "flag": "senat_digit_mobile_agenda_active",
+          "name": "Point actif",
+          "path": "/session/agenda",
+          "is_activated": true
+        }
+      ]
+    }
+  ]
+}
